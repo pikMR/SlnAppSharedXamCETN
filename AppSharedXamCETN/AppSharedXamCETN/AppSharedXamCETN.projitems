@@ -16,8 +16,49 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Repositories\HombreRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Repositories\Interfaces\IHombreRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Repositories\Interfaces\IMujerRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Repositories\MujerRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Services\CETNHombreService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Services\CETNMujerService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Atributos\Accesorios.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Atributos\Boca.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Atributos\Cabello.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Atributos\Calzado.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Atributos\Nariz.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Atributos\Ojos.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Atributos\Orejas.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Atributos\PrendaInferior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Atributos\PrendaSuperior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Entidad.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Hombre.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Humano.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Mujer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\CETNDomainService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Data\IDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Data\MockDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\JsonService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CETNbasicHumanViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CETNbasicHuman.xaml.cs">
+      <DependentUpon>CETNbasicHuman.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Infrastructure\DataModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="$(MSBuildThisFileDirectory)Resources\values-es\Strings.xml" />
+    <PRIResource Include="$(MSBuildThisFileDirectory)Resources\values\Strings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CETNbasicHuman.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
