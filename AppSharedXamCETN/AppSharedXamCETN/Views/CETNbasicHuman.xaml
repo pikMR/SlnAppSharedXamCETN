@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppCETN.Views.CETNbasicHuman"
+             Title="{Binding Human}">
+    <StackLayout Spacing="20" Padding="15">
+        <Label Text="{StaticResource lbl_Apodo}" FontSize="Medium" />
+        <Label Text="{Binding Human.Apodo}" FontSize="Small"/>
+        <Label Text="{StaticResource lbl_Estatura}" FontSize="Medium" />
+        <Label Text="{Binding Human.Descripcion}" FontSize="Small"/>
+    </StackLayout>
+</ContentPage>

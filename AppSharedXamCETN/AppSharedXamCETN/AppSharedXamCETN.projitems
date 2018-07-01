@@ -44,8 +44,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\JsonService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CETNbasicHumanViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\HumansViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LestaInicioView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\CETNbasicHuman.xaml.cs">
       <DependentUpon>CETNbasicHuman.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\NewHumanPage.xaml.cs">
+      <DependentUpon>NewHumanPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -57,6 +63,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CETNbasicHuman.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\NewHumanPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
