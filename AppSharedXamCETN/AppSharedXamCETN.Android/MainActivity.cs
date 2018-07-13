@@ -1,10 +1,5 @@
-﻿using System;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
 
 namespace AppSharedXamCETN.Droid
@@ -16,8 +11,10 @@ namespace AppSharedXamCETN.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-
             base.OnCreate(bundle);
+
+            // agrega literales
+            AppCETN.Services.LiteralesService.AddLiterales(Resources.GetStringArray(Resource.Array.lista_lbl_literales),Resources.GetStringArray(Resource.Array.lista_literales));
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());

@@ -22,6 +22,8 @@ namespace AppSharedXamCETN.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+
+            //var globalLabel = Resources.GetString(Resource.String.lbl_nombre);
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 

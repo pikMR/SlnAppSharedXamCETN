@@ -2,6 +2,7 @@
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using AppCETN.Services;
 
 namespace AppSharedXamCETN.Views
 {
@@ -14,8 +15,8 @@ namespace AppSharedXamCETN.Views
 			InitializeComponent();
             ItemHumano = new Humano
             {
-                Apodo = "Juan Grabiel",
-                Descripcion = "esto es la descripcion."
+                Nombre = LiteralesService.GetLiteral("lbl_nombre"),
+                Descripcion = LiteralesService.GetLiteral("lbl_descripcion")
             };
             BindingContext = this;
         }
@@ -35,5 +36,11 @@ namespace AppSharedXamCETN.Views
         }
 
 
+        private void EnableDisableFocus(object sender, EventArgs e)
+        {
+            (sender as Entry).IsEnabled = true;
+            //Navigation.PushAsync(new NewHumanPage());
+            //(sender as Button).Text = "I was just clicked!";
+        }
     }
 }

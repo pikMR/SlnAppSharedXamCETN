@@ -1,8 +1,8 @@
 ﻿namespace AppCETN.Models
 {
-    class Mujer : Humano
+    public class Mujer : Humano
     {
-        [Newtonsoft.Json.JsonProperty("Color de Labios")]
+        [Newtonsoft.Json.JsonProperty("Labios")]
         public string Labios { get; set; }
         [Newtonsoft.Json.JsonProperty("Escote")]
         public bool Escote { get; set; }

@@ -22,37 +22,17 @@ namespace AppCETN.ViewModels
             set { SetProperty(ref isBusy, value); }
         }
 
-        string title = string.Empty;
-        public string Title
-        {
-            get { return title; }
-            set { SetProperty(ref title, value); }
-        }
-
         public ObservableCollection<Humano> Items { get; set; }
         public Command LoadItemsCommand { get; set; }
+        //public Hombre AtributosHombre{ get; set; }
+        //public Mujer AtributosMujer { get; set; }
 
         public HumansViewModel()
         {
-            Title = "Title - Humanos";
+            Title = LiteralesService.GetLiteral("lbl_titulo");
+            Add = LiteralesService.GetLiteral("lbl_agregar");
             Items = new ObservableCollection<Humano>();
             Task.Run(async () => await ExecuteLoadHumansCommand());
-            /*Items = new ObservableCollection<Humano>()
-            {
-                new Humano { Nombre = "Manuela" , Descripcion = "Jamona1" },
-                new Humano { Nombre = "Maria" , Descripcion = "Jamona2" },
-                new Humano { Nombre = "Jacinta" , Descripcion = "Jamona3" },
-                new Humano { Nombre = "Ana" , Descripcion = "Jamona4" },
-                new Humano { Nombre = "Sofia" , Descripcion = "Jamona5" },
-                new Humano { Nombre = "Carmena" , Descripcion = "Jamona6" }
-            };
-            LoadItemsCommand = new Command(async () => await ExecuteLoadHumansCommand());
-            MessagingCenter.Subscribe<CETNbasicHuman,Humano>(this, "Agregar Humano", async (obj, item) =>
-            {
-                var _item = item as Humano;
-                Items.Add(_item);
-                await DataStore.AddItemAsync(_item);
-            });*/
         }
 
         async Task ExecuteLoadHumansCommand()
@@ -132,6 +112,22 @@ namespace AppCETN.ViewModels
                 return;
 
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        #endregion
+
+        #region Elementos visuales
+        private string btnAdd = string.Empty;
+        public string Add
+        {
+            get { return btnAdd; }
+            set { SetProperty(ref btnAdd, value); }
+        }
+
+        private string title = string.Empty;
+        public string Title
+        {
+            get { return title; }
+            set { SetProperty(ref title, value); }
         }
         #endregion
     }

@@ -1,16 +1,14 @@
 ﻿using Xamarin.Forms;
 using System;
 using AppCETN.Models;
-using AppCETN.Views;
 using AppCETN.ViewModels;
 using AppSharedXamCETN.Views;
-using System.Windows.Input;
 
 namespace AppSharedXamCETN
 {
 	public partial class MainPage : ContentPage
 	{
-        public Humano Item { get; set; }
+        //public Humano Item { get; set; }
         public HumansViewModel viewModel;
 
 		public MainPage()
@@ -18,25 +16,15 @@ namespace AppSharedXamCETN
 			InitializeComponent();
             BindingContext = new HumansViewModel();
         }
+
         async void Save_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "Agregar Humano", Item);
+            //MessagingCenter.Send(this, "Agregar Humano", Item);
             await Navigation.PopModalAsync();
         }
         public void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            //System.Diagnostics.Debug.WriteLine("OnItemSelected()");
-            //var item = args.SelectedItem as Humano;
-            //if (item == null)
-            //    return;
 
-            //BindingContext = new NavigationPage(new NewHumanPage());
-            //await Navigation.PushAsync(new NavigationPage(new NewHumanPage()));
-            //PushAsync(new NewHumanPage());
-            //if (this.SelectedItem == null) return;
-            //Navigation.PushAsync(new NewHumanPage());
-            // Manually deselect item.
-            //ItemsListView.SelectedItem = null;
         }
 
         async void AddItem_Clicked(object sender, EventArgs e)
@@ -50,12 +38,24 @@ namespace AppSharedXamCETN
 
             if (viewModel!=null && viewModel.Items.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
+
+            //var strLabel = Android.Resource.
         }
 
         private void LestaInicioView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             Navigation.PushAsync(new NewHumanPage(e.SelectedItem));
         }
-        
+
+        /*private void PressAdd_Pressed(object sender, EventArgs e)
+        {
+            (sender as Button).Text = "You pressed me!";
+        }*/
+
+        private void PressAdd_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new NewHumanPage());
+            //(sender as Button).Text = "I was just clicked!";
+        }
     }
 }

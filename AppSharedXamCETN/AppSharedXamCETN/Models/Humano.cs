@@ -8,7 +8,7 @@
         public string Apellido { get; set; }
         [Newtonsoft.Json.JsonProperty("Voz")]
         public string Voz { get; set; }
-        [Newtonsoft.Json.JsonProperty("Tez de Piel")]
+        [Newtonsoft.Json.JsonProperty("TezPiel")]
         public string Tez { get; set; }
         [Newtonsoft.Json.JsonProperty("Estatura")]
         public string Estatura { get; set; }
@@ -28,9 +28,9 @@
         public Orejas Oreja { get; set; }
         [Newtonsoft.Json.JsonProperty("Accesorios")]
         public Accesorios Decoracion { get; set; }
-        [Newtonsoft.Json.JsonProperty("Prenda Superior")]
+        [Newtonsoft.Json.JsonProperty("PrendaSuperior")]
         public PrendaSuperior Prenda1 { get; set; }
-        [Newtonsoft.Json.JsonProperty("Prenda Inferior")]
+        [Newtonsoft.Json.JsonProperty("PrendaInferior")]
         public PrendaInferior Prenda2 { get; set; }
         [Newtonsoft.Json.JsonProperty("Calzado")]
         public Calzado Pie { get; set; }

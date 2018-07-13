@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AppCETN.Models
+﻿namespace AppCETN.Models
 {
     public class Entidad
     {
@@ -12,7 +8,7 @@ namespace AppCETN.Models
         public string Color { get; set; }
         [Newtonsoft.Json.JsonProperty("Tamaño")]
         public double Altura { get; set; }
-        [Newtonsoft.Json.JsonProperty("Descripción")]
+        [Newtonsoft.Json.JsonProperty("Desc")]
         public string Descripcion { get; set; }
 
         public override string ToString()

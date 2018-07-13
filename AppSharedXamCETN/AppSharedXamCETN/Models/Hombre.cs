@@ -1,6 +1,6 @@
 ﻿namespace AppCETN.Models
 {
-    class Hombre : Humano
+    public class Hombre : Humano
     {
         [Newtonsoft.Json.JsonProperty("Bigote")]
         public bool Bigote { get; set; }

@@ -1,11 +1,8 @@
 ﻿using AppSharedXamCETN.Views;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace AppSharedXamCETN.ViewModels
+namespace AppCETN.ViewModels
 {
     public class LestaInicioView : ListView
     {

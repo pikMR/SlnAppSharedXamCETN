@@ -1,14 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppSharedXamCETN.Views.NewHumanPage">
+             x:Class="AppSharedXamCETN.Views.NewHumanPage"
+             >
     <ContentPage.Content>
         <StackLayout>
-            <Label 
-                x:Name="lblTitle"
-                Text="{Binding ItemHumano.Nombre}"
-                Font="Bold,Large"
-                HorizontalOptions="Center"/>
-        </StackLayout>
+            <Label FontSize="Large" HorizontalOptions="Center" Text="Nueva Mujer" />
+            <Frame>
+                <StackLayout>
+                    <Entry Placeholder="{Binding ItemHumano.Nombre}" HorizontalOptions="Fill" />
+                    <Entry Placeholder="{Binding ItemHumano.Descripcion}" HorizontalOptions="Fill" />
+                </StackLayout>
+            </Frame>
+        </StackLayout> 
     </ContentPage.Content>
 </ContentPage>
