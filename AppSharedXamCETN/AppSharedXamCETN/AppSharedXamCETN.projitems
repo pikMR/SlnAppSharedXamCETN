@@ -16,15 +16,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Helpers\Languages.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helpers\PlatformCulture.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Repositories\HombreRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Repositories\Interfaces\IHombreRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Repositories\Interfaces\IMujerRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Repositories\MujerRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Services\CETNHombreService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Services\CETNMujerService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\ILocalize.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -47,9 +44,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\JsonService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\LiteralesService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CETNbasicHumanViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\HumansViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PickerParaViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LestaInicioView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\EditHumanPage.xaml.cs">
+      <DependentUpon>EditHumanPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\NewHumanPage.xaml.cs">
       <DependentUpon>NewHumanPage.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -59,14 +59,13 @@
     <Folder Include="$(MSBuildThisFileDirectory)Infrastructure\DataModels\" />
   </ItemGroup>
   <ItemGroup>
-    <PRIResource Include="$(MSBuildThisFileDirectory)Resources\Resource.es.resw" />
-    <PRIResource Include="$(MSBuildThisFileDirectory)Resources\Resource.pt.resw" />
-    <PRIResource Include="$(MSBuildThisFileDirectory)Resources\Resource.resw" />
-    <PRIResource Include="$(MSBuildThisFileDirectory)Resources\values-es\Strings.xml" />
-    <PRIResource Include="$(MSBuildThisFileDirectory)Resources\values\Strings.xml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\NewHumanPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\NewHumanPage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\EditHumanPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>

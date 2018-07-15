@@ -4,14 +4,12 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 using AppCETN.Models;
-using AppCETN.Services;
+using System.Windows.Input;
 
 namespace AppCETN.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Humano> DataStore => DependencyService.Get<IDataStore<Humano>>() ?? new MockDataStore();
-
         bool isBusy = false;
         public bool IsBusy
         {
@@ -50,5 +48,33 @@ namespace AppCETN.ViewModels
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
+
+        private string _alertMessage;
+        public string AlertMessage
+        {
+            get
+            {
+                return _alertMessage;
+            }
+            set
+            {
+                _alertMessage = value;
+                OnPropertyChanged();
+            }
+        }
+        public ICommand ItemClickCommand
+        {
+            get
+            {
+                System.Diagnostics.Debug.WriteLine("ItemClickCommand");
+                return new Command(
+                    (item) =>
+                    {
+                        AlertMessage = ((Humano)item).Apodo;
+                    }
+                    );
+            }
+        }
+
     }
 }

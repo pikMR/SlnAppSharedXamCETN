@@ -1,5 +1,4 @@
-﻿
-namespace AppCETN.Models
+﻿namespace AppCETN.Models
 {
     public class Ojos
     {
@@ -7,10 +6,18 @@ namespace AppCETN.Models
         public string Color { get; set; }
         [Newtonsoft.Json.JsonProperty("Tamaño")]
         public string Tam { get; set; }
+        
+        public string Nombre
+        {
+            get
+            {
+                return Tam + " " + Color;
+            }
+        }
 
         public override string ToString()
         {
-            return Color;
+            return Nombre;
         }
     }
 }

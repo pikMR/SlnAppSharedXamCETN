@@ -3,10 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:AppCETN.ViewModels"
              x:Class="AppSharedXamCETN.MainPage">
-    <StackLayout>
-        <Button x:Name="PressAdd"
+    <ScrollView>
+        <StackLayout>
+            <Button x:Name="PressAdd"
         Text="{Binding Add}"
         Clicked="PressAdd_Clicked"/>
-        <local:LestaInicioView ItemsSource="{Binding Items}" ItemClickCommand="{Binding ItemClickCommand}" />
-    </StackLayout>
+            <local:LestaInicioView ItemsSource="{Binding Items}" ItemClickCommand="{Binding ItemClickCommand}" />
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

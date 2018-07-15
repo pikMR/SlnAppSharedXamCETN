@@ -25,7 +25,7 @@ namespace AppSharedXamCETN
         public void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
 
-        }
+        }               
 
         async void AddItem_Clicked(object sender, EventArgs e)
         {
@@ -44,7 +44,7 @@ namespace AppSharedXamCETN
 
         private void LestaInicioView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            Navigation.PushAsync(new NewHumanPage(e.SelectedItem));
+            Navigation.PushAsync(new EditHumanPage(e.SelectedItem));
         }
 
         /*private void PressAdd_Pressed(object sender, EventArgs e)

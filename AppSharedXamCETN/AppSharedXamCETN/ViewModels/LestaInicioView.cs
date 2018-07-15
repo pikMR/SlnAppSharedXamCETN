@@ -40,7 +40,7 @@ namespace AppCETN.ViewModels
             {
                 this.ItemClickCommand.Execute(e.Item);
                 this.SelectedItem = e.Item;
-                var mainPage = new NewHumanPage(e.Item);//this could be content page
+                var mainPage = new EditHumanPage(e.Item);//this could be content page
                 var rootPage = new NavigationPage(mainPage);
                 await Navigation.PushAsync(rootPage);
             }
@@ -48,8 +48,9 @@ namespace AppCETN.ViewModels
 
         private void LestaOnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            if (e.SelectedItem == null) return;
-            Navigation.PushAsync(new NewHumanPage(e.SelectedItem));
+            System.Console.WriteLine("LestaOnItemSelected()");
+            /*if (e.SelectedItem == null) return;
+            Navigation.PushAsync(new EditHumanPage(e.SelectedItem));*/
         }
     }
 }
