@@ -1,4 +1,3 @@
-using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,8 +8,7 @@ namespace AppSharedXamCETN
 	{
 		public App ()
 		{
-			InitializeComponent();
-
+            InitializeComponent();
             //MainPage = new MainPage();
             MainPage = new NavigationPage(new MainPage());
 		}

@@ -43,10 +43,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\Data\MockDataStore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\JsonService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\LiteralesService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shared\Singleton.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\HumansViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ItemListViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PickerParaViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LestaInicioView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ViewModel1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ViewModel2.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\EditHumanPage.xaml.cs">
       <DependentUpon>EditHumanPage.xaml</DependentUpon>
     </Compile>

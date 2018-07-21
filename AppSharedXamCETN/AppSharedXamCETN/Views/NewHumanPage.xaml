@@ -17,7 +17,7 @@
                 <Frame>
                     <StackLayout>
                         <Label TextColor="#C0C0C0" FontSize="15" Text="{Binding LblOjos}" />
-                        <Picker x:Name="pickerEyes"
+                        <Picker x:Name="pickerOjo"
                                 ItemsSource="{Binding PickerOjos.ListaItem}"
                                 HorizontalOptions="Fill" 
                                 ItemDisplayBinding="{Binding Nombre}"
@@ -36,7 +36,6 @@
                                 Title="{Binding ItemHumano.Pecho}"
                                 ItemsSource="{Binding PickerPecho.ListaItem}"
                                 HorizontalOptions="Fill" 
-                                ItemDisplayBinding="{Binding Nombre}"
                                 SelectedItem="{Binding PickerPecho.SelectedItem}"
                                 />
                         <Label TextColor="#C0C0C0" FontSize="15" Text="{Binding LblNalgas}" />
@@ -44,7 +43,6 @@
                                 Title="{Binding ItemHumano.Culo}"
                                 ItemsSource="{Binding PickerNalgas.ListaItem}"
                                 HorizontalOptions="Fill" 
-                                ItemDisplayBinding="{Binding Nombre}"
                                 SelectedItem="{Binding PickerNalgas.SelectedItem}"
                                 />
                     </StackLayout>
@@ -57,12 +55,11 @@
                                 Title="{Binding ItemHumano.Fisionomia}"
                                 ItemsSource="{Binding PickerFisionomia.ListaItem}"
                                 HorizontalOptions="Fill" 
-                                ItemDisplayBinding="{Binding Nombre}"
                                 SelectedItem="{Binding PickerFisionomia.SelectedItem}"
                                 />
                         <Label TextColor="#C0C0C0" FontSize="15" Text="{Binding LblPrendaSuperior}" />
                         <Picker x:Name="pickerPrendaSuperior"
-                                Title="{Binding ItemHumano.Prenda1}"
+                                Title="{Binding ItemHumano.Prenda1.Nombre}"
                                 ItemsSource="{Binding PickerPrendaSuperior.ListaItem}"
                                 HorizontalOptions="Fill" 
                                 ItemDisplayBinding="{Binding Nombre}"
@@ -70,7 +67,7 @@
                                 />
                         <Label TextColor="#C0C0C0" FontSize="15" Text="{Binding LblPrendaInferior}" />
                         <Picker x:Name="pickerPrendaInferior"
-                                Title="{Binding ItemHumano.Prenda2}"
+                                Title="{Binding ItemHumano.Prenda2.Nombre}"
                                 ItemsSource="{Binding PickerPrendaInferior.ListaItem}"
                                 HorizontalOptions="Fill" 
                                 ItemDisplayBinding="{Binding Nombre}"

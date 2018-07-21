@@ -10,6 +10,13 @@
         public double Altura { get; set; }
         [Newtonsoft.Json.JsonProperty("Desc")]
         public string Descripcion { get; set; }
+        [Newtonsoft.Json.JsonProperty("Id")]
+        public int IdEntidad{ get; set; }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
 
         public override string ToString()
         {

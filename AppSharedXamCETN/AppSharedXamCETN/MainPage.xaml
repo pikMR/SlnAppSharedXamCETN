@@ -2,13 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:AppCETN.ViewModels"
-             x:Class="AppSharedXamCETN.MainPage">
+             x:Class="AppSharedXamCETN.MainPage"
+             x:Name="Root"
+             >
     <ScrollView>
         <StackLayout>
-            <Button x:Name="PressAdd"
-        Text="{Binding Add}"
+            <Button x:Name="PressAdd" Text="{Binding Add}"
         Clicked="PressAdd_Clicked"/>
-            <local:LestaInicioView ItemsSource="{Binding Items}" ItemClickCommand="{Binding ItemClickCommand}" />
+            <!--local:LestaInicioView ItemsSource="{Binding ObHumanos}" ItemClickCommand="{Binding ItemClickCommand}" /-->
+            <!--local:LestaInicioView x:Name="RecursoSingleton" ItemsSource="{Binding vModelReference.ListaPantalla1 , Source={x:Reference Root}}"/-->
+            <local:LestaInicioView ItemsSource="{Binding ListaPantalla1}" ItemClickCommand="{Binding ItemClickCommand}" />
         </StackLayout>
     </ScrollView>
 </ContentPage>

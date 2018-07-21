@@ -41,7 +41,13 @@
         }
         public override string ToString()
         {
-            return base.ToString();
+            string adicionalStr = "";
+            if(Ojo!=null)
+                adicionalStr = Ojo.ToString();
+
+            return base.ToString() + " -> " + adicionalStr;
         }
+
+
     }
 }

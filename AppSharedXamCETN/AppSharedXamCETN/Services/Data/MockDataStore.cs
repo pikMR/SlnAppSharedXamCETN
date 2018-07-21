@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,84 +12,113 @@ namespace AppCETN.Services
 {
     public class MockDataStore : IDataStore<Humano>
     {
+        //public static List<Humano> Items;
         public List<Humano> Items;
-
         public MockDataStore()
         {
-            var instanciaOjos = CETNDomainService.ObtenerValoresOjos();
-            Items = new List<Humano>();
-            var mockItems = new List<Humano>
+            if (Items == null)
             {
-                new Humano { Nombre = "Manuela" , Descripcion = "Jamona1",
+                var instanciaOjos = CETNDomainService.ObtenerValoresOjos();
+                var instanciaCabello = CETNDomainService.ObtenerValoresCabello();
+                var instanciaPecho = CETNDomainService.ObtenerValoresPecho();
+                var instanciaCulo = CETNDomainService.ObtenerValoresNalgas();
+                var instanciaFisio = CETNDomainService.ObtenerValoresFisionomia();
+                var instanciaprenda1 = CETNDomainService.ObtenerValoresPrendaSup();
+                var instanciaprenda2 = CETNDomainService.ObtenerValoresPrendaInf();
+                Items = new List<Humano>();
+
+                var mockItems = new List<Humano>
+            {
+                new Humano
+                {
+                IdEntidad = 1,
+                Nombre = "Manuela" , Descripcion = "Jamona1",
                 Ojo = instanciaOjos[2],
-                Pelo = new Cabello() { Tam = "Largo" , Color = "Rubio"},
-                Pecho = "Grande",
-                Culo = "Grande",
-                Fisionomia = "Delgado",
-                Prenda1 = new PrendaSuperior(){ Nombre = "@string/prenda_superior_hombre_2" , Color = "Amarilla"},
-                Prenda2 = new PrendaInferior(){ Nombre = "@string/prenda_inferior_hombre_2" , Color = "Amarilla"}
+                Pelo = instanciaCabello[2],
+                Pecho = instanciaPecho[1],
+                Culo = instanciaCulo[2],
+                Fisionomia = instanciaFisio[0],
+                Prenda1 = instanciaprenda1[3],
+                Prenda2 = instanciaprenda2[0]
                 },
-                new Humano { Nombre = "Maria" , Descripcion = "Jamona2",
+                new Humano {
+                IdEntidad = 2,
+                Nombre = "Maria" , Descripcion = "Jamona2",
                 Ojo = instanciaOjos[1],
-                Pelo = new Cabello() { Tam = "Trenzado" , Color = "Rojizo"},
-                Pecho = "Mediano",
-                Culo = "Mediano",
-                Fisionomia = "Fuerte",
-                Prenda1 = new PrendaSuperior(){ Nombre = "@string/prenda_superior_hombre_3" , Color = "Negra"},
-                Prenda2 = new PrendaInferior(){ Nombre = "@string/prenda_inferior_hombre_1" , Color = "Amarilla"}
+                Pelo = instanciaCabello[3],
+                Pecho = instanciaPecho[0],
+                Culo = instanciaCulo[0],
+                Fisionomia = instanciaFisio[0],
+                Prenda1 = instanciaprenda1[2],
+                Prenda2 = instanciaprenda2[0]
                 },
-                new Humano { Nombre = "Jacinta" , Descripcion = "Jamona3",
+                new Humano {
+                IdEntidad = 3,
+                Nombre = "Jacinta" , Descripcion = "Jamona3",
                 Ojo = instanciaOjos[3],
-                Pelo = new Cabello() { Tam = "De punta" , Color = "Rubio"},
-                Pecho = "Grande",
-                Culo = "Grande",
-                Fisionomia = "Pesado",
-                Prenda1 = new PrendaSuperior(){ Nombre = "@string/prenda_superior_hombre_4" , Color = "Azul"},
-                Prenda2 = new PrendaInferior(){ Nombre = "@string/prenda_inferior_hombre_2" , Color = "Amarilla"}
+                Pelo = instanciaCabello[1],
+                Pecho = instanciaPecho[1],
+                Culo = instanciaCulo[0],
+                Fisionomia = instanciaFisio[1],
+                Prenda1 = instanciaprenda1[0],
+                Prenda2 = instanciaprenda2[1]
                 },
-                new Humano { Nombre = "Ana" , Descripcion = "Jamona4",
+                new Humano {
+                IdEntidad = 4,
+                Nombre = "Ana" , Descripcion = "Jamona4",
                 Ojo = instanciaOjos[5],
-                Pecho = "Pequeño",
-                Culo = "Pequeño",
-                Fisionomia = "Delgado",
-                Pelo = new Cabello() { Tam = "Largo" , Color = "Castaño"},
-                Prenda1 = new PrendaSuperior(){ Nombre = "@string/prenda_superior_hombre_5" , Color = "Verde"},
-                Prenda2 = new PrendaInferior(){ Nombre = "@string/prenda_inferior_hombre_1" , Color = "Amarilla"}
+                Pecho = instanciaPecho[1],
+                Culo = instanciaCulo[0],
+                Fisionomia = instanciaFisio[0],
+                Pelo = instanciaCabello[1],
+                Prenda1 = instanciaprenda1[0],
+                Prenda2 = instanciaprenda2[2]
                 },
-                new Humano { Nombre = "Sofia" , Descripcion = "Jamona5",
+                new Humano {
+                IdEntidad = 5,
+                Nombre = "Sofia" , Descripcion = "Jamona5",
                 Ojo = instanciaOjos[0],
-                Pecho = "Grande",
-                Culo = "Grande",
-                Fisionomia = "Cuerpo Escombro",
-                Pelo = new Cabello() { Tam = "Corto" , Color = "Rubio"},
-                Prenda1 = new PrendaSuperior(){ Nombre = "@string/prenda_superior_hombre_6" , Color = "Blanca"},
-                Prenda2 = new PrendaInferior(){ Nombre = "@string/prenda_inferior_hombre_2" , Color = "Amarilla"}
+                Pecho = instanciaPecho[2],
+                Culo = instanciaCulo[0],
+                Fisionomia = instanciaFisio[1],
+                Pelo = instanciaCabello[5],
+                Prenda1 = instanciaprenda1[3],
+                Prenda2 = instanciaprenda2[0]
                 },
-                new Humano { Nombre = "Carmena" , Descripcion = "Jamona6",
+                new Humano {
+                IdEntidad = 6,
+                Nombre = "Carmena" , Descripcion = "Jamona6",
                 Ojo = instanciaOjos[5],
-                Pecho = "Grande",
-                Culo = "Grande",
-                Fisionomia = "Raspa",
-                Pelo = new Cabello() { Tam = "Largo" , Color = "Moreno"},
-                Prenda1 = new PrendaSuperior(){ Nombre = "@string/prenda_superior_hombre_7" , Color = "Morada"},
-                Prenda2 = new PrendaInferior(){ Nombre = "@string/prenda_inferior_hombre_1" , Color = "Amarilla"}
+                Pecho = instanciaPecho[1],
+                Culo = instanciaCulo[0],
+                Fisionomia = instanciaFisio[1],
+                Pelo = instanciaCabello[2],
+                Prenda1 = instanciaprenda1[0],
+                Prenda2 = instanciaprenda2[1]
                 },
             };
-
-            foreach (var item in mockItems)
-            {
-                Items.Add(item);
+                foreach (var item in mockItems)
+                {
+                    Items.Add(item);
+                }
             }
+        }
+
+
+        internal void UpdateData(Humano objetosrc,Humano objend)
+        {
+            var _item = Items.Where((Humano arg) => arg == objetosrc).FirstOrDefault();
+            Items.Remove(_item);
+            Items.Add(objend);
         }
 
         public async Task<bool> AddItemAsync(Humano item)
         {
             Items.Add(item);
-
             return await Task.FromResult(true);
         }
 
-        public async Task<bool> UpdateItemAsync(Humano item)
+        public  async Task<bool> UpdateItemAsync(Humano item)
         {
             var _item = Items.Where((Humano arg) => arg.Apodo == item.Apodo).FirstOrDefault();
             Items.Remove(_item);
@@ -96,11 +127,18 @@ namespace AppCETN.Services
             return await Task.FromResult(true);
         }
 
-        public async Task<bool> DeleteItemAsync(string id)
+        public  Task<bool> UpdateItemAsync(Humano item , Humano objend)
         {
-            var _item = Items.Where((Humano arg) => arg.Apodo == id).FirstOrDefault();
+            var _item = Items.Where((Humano arg) => arg == item).FirstOrDefault();
             Items.Remove(_item);
+            Items.Add(objend);
+            return Task.FromResult(true);
+        }
 
+        public async Task<bool> DeleteItemAsync(int id)
+        {
+            var _item = Items.Where((Humano arg) => arg.IdEntidad == id).FirstOrDefault();
+            Items.Remove(_item);
             return await Task.FromResult(true);
         }
 

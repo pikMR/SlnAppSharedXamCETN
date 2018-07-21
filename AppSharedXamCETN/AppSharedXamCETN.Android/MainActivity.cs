@@ -19,6 +19,13 @@ namespace AppSharedXamCETN.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
         }
+
+       /* protected override void OnPause()
+        {
+            base.OnPause();
+            System.Console.WriteLine("1 ====> savedata");
+            System.Diagnostics.Debug.WriteLine("2 ===> savedata");
+        }*/
     }
 }
 

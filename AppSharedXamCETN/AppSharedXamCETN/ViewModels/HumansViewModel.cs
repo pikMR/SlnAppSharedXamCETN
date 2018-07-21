@@ -9,7 +9,7 @@ namespace AppCETN.ViewModels
 {
     public class HumansViewModel : BaseViewModel
     {
-        public IDataStore<Humano> DataStore => DependencyService.Get<IDataStore<Humano>>() ?? new MockDataStore();
+        public static IDataStore<Humano> DataStore => DependencyService.Get<IDataStore<Humano>>() ?? new MockDataStore();
 
         #region Elementos visuales
         private string btnAdd = string.Empty;
@@ -21,15 +21,23 @@ namespace AppCETN.ViewModels
         #endregion
 
 
-        public ObservableCollection<Humano> Items { get; set; }
+        public System.Collections.Generic.List<Humano> Items { get; set; }
         public Command LoadItemsCommand { get; set; }
 
         public HumansViewModel()
         {
+            MessagingCenter.Subscribe<AppSharedXamCETN.Views.EditHumanPage, Humano>(this, "ActualizarHumano", (sender, item) => {
+                //Items.RemoveAll(p => p.IdEntidad == item.IdEntidad);
+                //Items.Add(item);
+                DataStore.DeleteItemAsync(item.IdEntidad);
+                DataStore.AddItemAsync(item);
+                Task.Run(async () => await ExecuteLoadHumansCommand());
+            });
             Title = LiteralesService.GetLiteral("lbl_titulo");
             Add = LiteralesService.GetLiteral("lbl_agregar");
-            Items = new ObservableCollection<Humano>();
+            Items = new System.Collections.Generic.List<Humano>();
             Task.Run(async () => await ExecuteLoadHumansCommand());
+
         }
 
         async Task ExecuteLoadHumansCommand()
@@ -47,6 +55,7 @@ namespace AppCETN.ViewModels
                 {
                     Items.Add(item);
                 }
+
             }
             catch (System.Exception ex)
             {

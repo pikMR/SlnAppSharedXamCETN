@@ -29,28 +29,28 @@ namespace AppCETN.ViewModels
         public LestaInicioView()
         {
             this.ItemTapped += OnItemTapped;
+            //this.ItemSelected += LestaOnItemSelectedAsync;
         }
 
         async private void OnItemTapped(object sender, ItemTappedEventArgs e)
         {
             System.Diagnostics.Debug.WriteLine("OnItemTapped" + e.Item);
-            //ItemClickCommand?.Execute(e.Item);
-            //SelectedItem = e.Item;
-            if(e.Item != null && this.ItemClickCommand != null && this.ItemClickCommand.CanExecute(e))
+           /* if(e.Item != null && this.ItemClickCommand != null && this.ItemClickCommand.CanExecute(e))
             {
-                this.ItemClickCommand.Execute(e.Item);
-                this.SelectedItem = e.Item;
+                ItemClickCommand.Execute(e.Item);*/
+                //SelectedItem = e.Item;
                 var mainPage = new EditHumanPage(e.Item);//this could be content page
                 var rootPage = new NavigationPage(mainPage);
                 await Navigation.PushAsync(rootPage);
-            }
         }
 
-        private void LestaOnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        async  private void LestaOnItemSelectedAsync(object sender, SelectedItemChangedEventArgs e)
         {
             System.Console.WriteLine("LestaOnItemSelected()");
-            /*if (e.SelectedItem == null) return;
-            Navigation.PushAsync(new EditHumanPage(e.SelectedItem));*/
+            //SelectedItem = e.SelectedItem;
+            var mainPage = new EditHumanPage(e.SelectedItem);//this could be content page
+            var rootPage = new NavigationPage(mainPage);
+            await Navigation.PushAsync(rootPage);
         }
     }
 }
