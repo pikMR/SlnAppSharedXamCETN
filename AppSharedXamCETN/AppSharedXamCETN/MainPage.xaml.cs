@@ -28,6 +28,5 @@ namespace AppSharedXamCETN
         {
             await Navigation.PopModalAsync();
         }
-        
     }
 }

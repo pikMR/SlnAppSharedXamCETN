@@ -26,10 +26,10 @@ namespace AppCETN.Services
 
                 var mockItems = new List<Humano>
             {
-                new Humano
+                new Hombre
                 {
                 IdEntidad = 1,
-                Nombre = "Manuela" , Descripcion = "Jamona1",
+                Nombre = "Manuel" , Descripcion = "Mecánico",
                 Ojo = instanciaOjos[2],
                 Pelo = instanciaCabello[2],
                 Pecho = instanciaPecho[1],
@@ -38,9 +38,9 @@ namespace AppCETN.Services
                 Prenda1 = instanciaprenda1[3],
                 Prenda2 = instanciaprenda2[0]
                 },
-                new Humano {
+                new Mujer {
                 IdEntidad = 2,
-                Nombre = "Maria" , Descripcion = "Jamona2",
+                Nombre = "Maria" , Descripcion = "Ejecutiva",
                 Ojo = instanciaOjos[1],
                 Pelo = instanciaCabello[3],
                 Pecho = instanciaPecho[0],
@@ -49,9 +49,9 @@ namespace AppCETN.Services
                 Prenda1 = instanciaprenda1[2],
                 Prenda2 = instanciaprenda2[0]
                 },
-                new Humano {
+                new Hombre {
                 IdEntidad = 3,
-                Nombre = "Jacinta" , Descripcion = "Jamona3",
+                Nombre = "Luis" , Descripcion = "Periodista",
                 Ojo = instanciaOjos[3],
                 Pelo = instanciaCabello[1],
                 Pecho = instanciaPecho[1],
@@ -60,9 +60,9 @@ namespace AppCETN.Services
                 Prenda1 = instanciaprenda1[0],
                 Prenda2 = instanciaprenda2[1]
                 },
-                new Humano {
+                new Mujer {
                 IdEntidad = 4,
-                Nombre = "Ana" , Descripcion = "Jamona4",
+                Nombre = "Isabel" , Descripcion = "Actriz",
                 Ojo = instanciaOjos[5],
                 Pecho = instanciaPecho[1],
                 Culo = instanciaCulo[0],
@@ -71,9 +71,9 @@ namespace AppCETN.Services
                 Prenda1 = instanciaprenda1[0],
                 Prenda2 = instanciaprenda2[2]
                 },
-                new Humano {
+                new Hombre {
                 IdEntidad = 5,
-                Nombre = "Sofia" , Descripcion = "Jamona5",
+                Nombre = "Juan" , Descripcion = "Fontanero",
                 Ojo = instanciaOjos[0],
                 Pecho = instanciaPecho[2],
                 Culo = instanciaCulo[0],
@@ -82,9 +82,9 @@ namespace AppCETN.Services
                 Prenda1 = instanciaprenda1[3],
                 Prenda2 = instanciaprenda2[0]
                 },
-                new Humano {
+                new Mujer {
                 IdEntidad = 6,
-                Nombre = "Carmena" , Descripcion = "Jamona6",
+                Nombre = "Carmena" , Descripcion = "Lista del paro",
                 Ojo = instanciaOjos[5],
                 Pecho = instanciaPecho[1],
                 Culo = instanciaCulo[0],

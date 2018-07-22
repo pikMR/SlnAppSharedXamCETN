@@ -7,11 +7,11 @@
              >
     <ScrollView>
         <StackLayout>
-            <Button x:Name="PressAdd" Text="{Binding Add}"
-        Clicked="AddItem_Clicked"/>
+            <Button x:Name="PressAdd" Text="{Binding Add}" Clicked="AddItem_Clicked"/>
             <!--local:LestaInicioView ItemsSource="{Binding ObHumanos}" ItemClickCommand="{Binding ItemClickCommand}" /-->
             <!--local:LestaInicioView x:Name="RecursoSingleton" ItemsSource="{Binding vModelReference.ListaPantalla1 , Source={x:Reference Root}}"/-->
-            <local:LestaInicioView ItemsSource="{Binding ListaPantalla1}" ItemClickCommand="{Binding ItemClickCommand}" />
+            <!-- Style="{StaticResource style_mujer}" -->
+            <local:LestaInicioView ItemsSource="{Binding ListaPantalla1}" ItemClickCommand="{Binding ItemClickCommand}" Style="" />
         </StackLayout>
     </ScrollView>
 </ContentPage>

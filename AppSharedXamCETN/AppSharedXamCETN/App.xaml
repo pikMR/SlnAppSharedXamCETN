@@ -3,5 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppSharedXamCETN.App">
     <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="style_mujer" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
