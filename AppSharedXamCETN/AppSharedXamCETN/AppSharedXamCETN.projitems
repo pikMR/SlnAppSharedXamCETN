@@ -45,28 +45,15 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\LiteralesService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shared\Singleton.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\HumansViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ItemListViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PickerParaViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LestaInicioView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ViewModel1.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ViewModel2.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\EditHumanPage.xaml.cs">
       <DependentUpon>EditHumanPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\NewHumanPage.xaml.cs">
-      <DependentUpon>NewHumanPage.xaml</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Infrastructure\DataModels\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\NewHumanPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\EditHumanPage.xaml">

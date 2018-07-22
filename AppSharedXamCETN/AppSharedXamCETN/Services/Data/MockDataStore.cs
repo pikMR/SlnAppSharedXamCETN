@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Collections.Specialized;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -105,11 +102,11 @@ namespace AppCETN.Services
         }
 
 
-        internal void UpdateData(Humano objetosrc,Humano objend)
+        internal void UpdateData(Humano item)
         {
-            var _item = Items.Where((Humano arg) => arg == objetosrc).FirstOrDefault();
+            var _item = Items.Where(e=>e.IdEntidad == item.IdEntidad).FirstOrDefault();
             Items.Remove(_item);
-            Items.Add(objend);
+            Items.Add(item);
         }
 
         public async Task<bool> AddItemAsync(Humano item)
@@ -127,14 +124,6 @@ namespace AppCETN.Services
             return await Task.FromResult(true);
         }
 
-        public  Task<bool> UpdateItemAsync(Humano item , Humano objend)
-        {
-            var _item = Items.Where((Humano arg) => arg == item).FirstOrDefault();
-            Items.Remove(_item);
-            Items.Add(objend);
-            return Task.FromResult(true);
-        }
-
         public async Task<bool> DeleteItemAsync(int id)
         {
             var _item = Items.Where((Humano arg) => arg.IdEntidad == id).FirstOrDefault();
@@ -144,7 +133,7 @@ namespace AppCETN.Services
 
         public async Task<Humano> GetItemAsync(string id)
         {
-            return await Task.FromResult(Items.FirstOrDefault(s => s.Apodo == id));
+            return await Task.FromResult(Items.FirstOrDefault(s => s.IdEntidad.ToString() == id));
         }
 
         public async Task<IEnumerable<Humano>> GetItemsAsync(bool forceRefresh = false)
