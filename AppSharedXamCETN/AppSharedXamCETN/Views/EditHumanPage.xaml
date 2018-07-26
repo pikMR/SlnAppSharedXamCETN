@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppSharedXamCETN.Views.EditHumanPage"
+             >
+    <ContentPage.Resources>
+        <!--ResourceDictionary>
+            <Style x:Key="btnMujer" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#eee"/>
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="BorderRadius" Value="0"/>
+                <Setter Property="FontSize" Value="40" />
+            </Style>
+            <Style x:Key="btnHombre" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#ddd"/>
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="BorderRadius" Value="0"/>
+                <Setter Property="FontSize" Value="40" />
+            </Style>Style="{StaticResource btnHombre}"Style="{StaticResource btnMujer}"
+        </ResourceDictionary-->
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                    <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                        <Button x:Name="_btnHombre" Text="H"  Clicked="BtnHombre_Clicked"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                        <Button x:Name="_btnMujer" Text="M"  Clicked="BtnMujer_Clicked"/>
+                    </StackLayout>
+                </StackLayout>
+                <Entry x:Name="entryName" Placeholder="Se llama..." Grid.Row="3"  Text="{Binding ItemHumano.Nombre}" FontSize="Large" HorizontalOptions="Center"/>
+                <Frame>
+                    <StackLayout>
+                        <Label TextColor="#C0C0C0" FontSize="15" Text="{Binding LblDescripcion}" />
+                        <Entry x:Name="entryDesc" Text="{Binding ItemHumano.Descripcion}" HorizontalOptions="Fill" />
+                    </StackLayout>
+                </Frame>
+                <Label FontSize="Large" HorizontalOptions="Center" Text="{Binding LblCaracteristicas}" />
+                <Frame>
+                    <StackLayout>
+                        <Label TextColor="#C0C0C0" FontSize="15" Text="{Binding LblOjos}" />
+                        <Picker x:Name="pickerOjo"
+                                Title="{Binding ItemHumano.Ojo.Nombre}"
+                                ItemsSource="{Binding PickerOjos.ListaItem}"
+                                HorizontalOptions="Fill" 
+                                ItemDisplayBinding="{Binding Nombre}"
+                                SelectedItem="{Binding PickerOjos.SelectedItem}"
+                                />
+                        <Label TextColor="#C0C0C0" FontSize="15" Text="{Binding LblPelo}" />
+                        <Picker x:Name="pickerCabello"
+                                Title="{Binding ItemHumano.Pelo.Nombre}"
+                                ItemsSource="{Binding PickerCabello.ListaItem}"
+                                HorizontalOptions="Fill" 
+                                ItemDisplayBinding="{Binding Nombre}"
+                                SelectedItem="{Binding PickerCabello.SelectedItem}"
+                                />
+                        <Label TextColor="#C0C0C0" FontSize="15" Text="{Binding LblPecho}" />
+                        <Picker x:Name="pickerPecho"
+                                Title="{Binding ItemHumano.Pecho}"
+                                ItemsSource="{Binding PickerPecho.ListaItem}"
+                                HorizontalOptions="Fill"
+                                SelectedItem="{Binding PickerPecho.SelectedItem}"
+                                />
+                        <Label TextColor="#C0C0C0" FontSize="15" Text="{Binding LblNalgas}" />
+                        <Picker x:Name="pickerNalgas"
+                                Title="{Binding ItemHumano.Culo}"
+                                ItemsSource="{Binding PickerNalgas.ListaItem}"
+                                HorizontalOptions="Fill"
+                                SelectedItem="{Binding PickerNalgas.SelectedItem}"
+                                />
+                    </StackLayout>
+                </Frame>
+                <Label FontSize="Large" HorizontalOptions="Center" Text="{Binding LblVestir}" />
+                <Frame>
+                    <StackLayout>
+                        <Label TextColor="#C0C0C0" FontSize="15" Text="{Binding LblFisionomía}" />
+                        <Picker x:Name="pickerFisionomia"
+                                Title="{Binding ItemHumano.Fisionomia}"
+                                ItemsSource="{Binding PickerFisionomia.ListaItem}"
+                                HorizontalOptions="Fill"
+                                SelectedItem="{Binding PickerFisionomia.SelectedItem}"
+                                />
+                        <Label TextColor="#C0C0C0" FontSize="15" Text="{Binding LblPrendaSuperior}" />
+                        <Picker x:Name="pickerPrendaSuperior"
+                                Title="{Binding ItemHumano.Prenda1.Nombre}"
+                                ItemsSource="{Binding PickerPrendaSuperior.ListaItem}"
+                                HorizontalOptions="Fill" 
+                                ItemDisplayBinding="{Binding Nombre}"
+                                SelectedItem="{Binding PickerPrendaSuperior.SelectedItem}"
+                                />
+                        <Label TextColor="#C0C0C0" FontSize="15" Text="{Binding LblPrendaInferior}" />
+                        <Picker x:Name="pickerPrendaInferior"
+                                Title="{Binding ItemHumano.Prenda2.Nombre}"
+                                ItemsSource="{Binding PickerPrendaInferior.ListaItem}"
+                                HorizontalOptions="Fill" 
+                                ItemDisplayBinding="{Binding Nombre}"
+                                SelectedItem="{Binding PickerPrendaInferior.SelectedItem}"
+                                />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
