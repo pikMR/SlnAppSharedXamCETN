@@ -7,11 +7,19 @@
              >
     <ScrollView>
         <StackLayout>
+            <!--StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                    <Button x:Name="_btnOjos" Text="Oj"  Clicked="BtnOjo_Clicked"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                    <Button x:Name="_btnPrenda" Text="Pr"  Clicked="BtnPr_Clicked"/>
+                </StackLayout>
+            </-->
             <Button x:Name="PressAdd" Text="{Binding Add}" Clicked="AddItem_Clicked"/>
             <!--local:LestaInicioView ItemsSource="{Binding ObHumanos}" ItemClickCommand="{Binding ItemClickCommand}" /-->
             <!--local:LestaInicioView x:Name="RecursoSingleton" ItemsSource="{Binding vModelReference.ListaPantalla1 , Source={x:Reference Root}}"/-->
             <!-- Style="{StaticResource style_mujer}" -->
-            <local:LestaInicioView ItemsSource="{Binding ListaPantalla1}" ItemClickCommand="{Binding ItemClickCommand}" Style="" />
+            <local:LestaInicioView ItemsSource="{Binding ListaPantalla1}" ItemClickCommand="{Binding ItemClickCommand}" />
         </StackLayout>
     </ScrollView>
 </ContentPage>

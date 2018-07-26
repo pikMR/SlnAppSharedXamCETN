@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using AppCETN.Models;
+using System.Threading.Tasks;
+using AppSharedXamCETN.Infrastructure.Services;
 
 namespace AppCETN.Services
 {
     class CETNDomainService
     {
-        
         private static List<Ojos> instancialistaOjos = null;
         private static List<Cabello> instancialistaCabello = null;
         private static List<string> instanciaListaColorPlural = null;
@@ -19,12 +21,54 @@ namespace AppCETN.Services
         private static List<string> instanciaListaColorCabello = null;
         private static List<string> instanciaListaTamCabello = null;
 
-        public static IEnumerable<Hombre> GetAllHombresJSON()
+        public static IEnumerable<Humano> GetAllHombresJSON()
         {
-            return CETNHombreService.GetAllHombresJSON();
+            List<Humano> mixlista = new List<Humano>();
+            var lista = CETNHombreService.GetAllHombresJSON();
+            foreach(var human in lista)
+            {
+                if (human.Sexo == 'M')
+                {
+                    Mujer nueva = new Mujer(human);
+                    mixlista.Add(nueva);
+                }
+                else
+                {
+                    Hombre nuevo = new Hombre(human);
+                    mixlista.Add(nuevo);
+                }
+            }
+            return mixlista;
         }
 
-        public static void InsertarHombreJSON(object data) => CETNHombreService.InsertHombreJSON(data);
+        public static async Task<bool> InsertarHombreJSON(object data)
+        {
+            return await CETNHumanoService.GenerarHumanoJSON(data);
+            //return await CETNHombreService.InsertHombreJSON(data);
+        }
+
+        public static async Task<bool> InsertarMujerJSON(object data)
+        {
+            return await CETNHumanoService.GenerarHumanoJSON(data);
+            //return await CETNMujerService.InsertMujerJSON(data);
+        }
+
+        public static async Task<bool> InsertarHumanoJSON(object data)
+        {
+            return await CETNHumanoService.GenerarHumanoJSON(data);
+            //return await CETNMujerService.InsertMujerJSON(data);
+        }
+
+        #region Recibir datos JSON
+
+        public async System.Threading.Tasks.Task<IEnumerable<Humano>> GetItemsAsync(bool forceRefresh = false)
+        {
+            return await System.Threading.Tasks.Task.FromResult(GetItemsDesdeJson());
+        }
+
+        private IEnumerable<Humano> GetItemsDesdeJson() => CETNHombreService.GetAllHombresJSON().Concat<Humano>(CETNMujerService.GetAllMujeresJSON());
+
+        #endregion
 
         #region ObtenerValores para picker
         public static List<Ojos> ObtenerValoresOjos()

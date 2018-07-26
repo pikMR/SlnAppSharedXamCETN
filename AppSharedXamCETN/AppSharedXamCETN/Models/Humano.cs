@@ -1,4 +1,7 @@
-﻿namespace AppCETN.Models
+﻿using System;
+using System.Threading.Tasks;
+
+namespace AppCETN.Models
 {
     public class Humano : Entidad
     {
@@ -34,6 +37,9 @@
         public PrendaInferior Prenda2 { get; set; }
         [Newtonsoft.Json.JsonProperty("Calzado")]
         public Calzado Pie { get; set; }
+        public virtual char Sexo { get; set; }
+
+        //public string AtribSeleccionado { get; set; }
 
         private void SetEstatura()
         {
@@ -41,13 +47,33 @@
         }
         public override string ToString()
         {
-            string adicionalStr = "";
-            if(Ojo!=null)
-                adicionalStr = Ojo.ToString();
-
-            return base.ToString() + " -> " + adicionalStr;
+            /*if (!string.IsNullOrEmpty(AtribSeleccionado))
+            {
+                return base.ToString() + AtribSeleccionado;
+            }*/
+                return base.ToString();
         }
 
+        public Humano(Humano itemHumano)
+        {
+            Fecha = itemHumano.Fecha;
+            IdEntidad = itemHumano.IdEntidad;
+            Ojo = itemHumano.Ojo;
+            Pelo = itemHumano.Pelo;
+            Pecho = itemHumano.Pecho;
+            Culo = itemHumano.Culo;
+            Fisionomia = itemHumano.Fisionomia;
+            Prenda1 = itemHumano.Prenda1;
+            Prenda2 = itemHumano.Prenda2;
+            Nombre = itemHumano.Nombre;
+            Descripcion = itemHumano.Descripcion;
+        }
 
+        public Humano() { }
+
+        public static implicit operator Humano(Task<Humano> v)
+        {
+            return v.Result;
+        }
     }
 }

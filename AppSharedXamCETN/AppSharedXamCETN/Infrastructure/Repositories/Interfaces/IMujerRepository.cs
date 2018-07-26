@@ -8,5 +8,6 @@ namespace AppCETN.Infrastructure.Repositories
     {
         IEnumerable<Mujer> GetAll();
         JObject GetAllJson();
+        void InsertMujerJSON(object data);
     }
 }

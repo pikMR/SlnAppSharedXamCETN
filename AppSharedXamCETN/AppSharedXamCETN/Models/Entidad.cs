@@ -12,6 +12,8 @@
         public string Descripcion { get; set; }
         [Newtonsoft.Json.JsonProperty("Id")]
         public int IdEntidad{ get; set; }
+        [Newtonsoft.Json.JsonProperty("Fecha")]
+        public string Fecha { get; set; }
 
         public object Clone()
         {

@@ -33,12 +33,17 @@ namespace AppCETN.Infrastructure.Repositories
             throw new System.NotImplementedException();
         }
 
-        internal void InsertHombreJSON(string strJSON)
+        internal async Task<bool> InsertHombreJSON(object data)
         {
+            return await Task.FromResult(true);
             // obtiene el archivo, e inserta el contenido del json,
             // si no existe el archivo lo crea e introduce el json.
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
+        void IHombreRepository.InsertHombreJSON(object data)
+        {
+            
+        }
     }
 }

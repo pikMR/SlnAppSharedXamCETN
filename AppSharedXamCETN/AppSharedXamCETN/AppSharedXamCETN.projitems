@@ -17,10 +17,12 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Repositories\HombreRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Repositories\HumanoRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Repositories\Interfaces\IHombreRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Repositories\Interfaces\IMujerRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Repositories\MujerRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Services\CETNHombreService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Services\CETNHumanoService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Services\CETNMujerService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -45,7 +47,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\LiteralesService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shared\ColorConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shared\Singleton.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shared\TextColorEffect.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PickerParaViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LestaInicioView.cs" />

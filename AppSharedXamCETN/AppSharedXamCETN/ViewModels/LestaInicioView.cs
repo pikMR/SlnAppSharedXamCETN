@@ -19,6 +19,7 @@ namespace AppCETN.ViewModels
         {
             Cell nueva = base.CreateDefault(item);
             nueva.SetBinding(TextCell.TextColorProperty, new Binding("Sexo",converter:new ColorConverter()) );
+            nueva.SetValue(TextCell.DetailProperty, ((Models.Humano)item).Fecha);
             return nueva;
         }
 

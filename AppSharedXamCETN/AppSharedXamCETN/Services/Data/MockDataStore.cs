@@ -11,6 +11,7 @@ namespace AppCETN.Services
     {
         //public static List<Humano> Items;
         public List<Humano> Items;
+        public static string JSON { get; set; }
         public MockDataStore()
         {
             if (Items == null)
@@ -23,8 +24,10 @@ namespace AppCETN.Services
                 var instanciaprenda1 = CETNDomainService.ObtenerValoresPrendaSup();
                 var instanciaprenda2 = CETNDomainService.ObtenerValoresPrendaInf();
                 Items = new List<Humano>();
+                string tiempo = System.DateTime.Now.ToLocalTime().ToString();
+                var mockItems = CETNDomainService.GetAllHombresJSON();
 
-                var mockItems = new List<Humano>
+                /*var mockItems = new List<Humano>
             {
                 new Hombre
                 {
@@ -36,7 +39,8 @@ namespace AppCETN.Services
                 Culo = instanciaCulo[2],
                 Fisionomia = instanciaFisio[0],
                 Prenda1 = instanciaprenda1[3],
-                Prenda2 = instanciaprenda2[0]
+                Prenda2 = instanciaprenda2[0],
+                Fecha = tiempo
                 },
                 new Mujer {
                 IdEntidad = 2,
@@ -47,7 +51,8 @@ namespace AppCETN.Services
                 Culo = instanciaCulo[0],
                 Fisionomia = instanciaFisio[0],
                 Prenda1 = instanciaprenda1[2],
-                Prenda2 = instanciaprenda2[0]
+                Prenda2 = instanciaprenda2[0],
+                Fecha = tiempo
                 },
                 new Hombre {
                 IdEntidad = 3,
@@ -58,7 +63,8 @@ namespace AppCETN.Services
                 Culo = instanciaCulo[0],
                 Fisionomia = instanciaFisio[1],
                 Prenda1 = instanciaprenda1[0],
-                Prenda2 = instanciaprenda2[1]
+                Prenda2 = instanciaprenda2[1],
+                Fecha = tiempo
                 },
                 new Mujer {
                 IdEntidad = 4,
@@ -69,7 +75,8 @@ namespace AppCETN.Services
                 Fisionomia = instanciaFisio[0],
                 Pelo = instanciaCabello[1],
                 Prenda1 = instanciaprenda1[0],
-                Prenda2 = instanciaprenda2[2]
+                Prenda2 = instanciaprenda2[2],
+                Fecha = tiempo
                 },
                 new Hombre {
                 IdEntidad = 5,
@@ -80,7 +87,8 @@ namespace AppCETN.Services
                 Fisionomia = instanciaFisio[1],
                 Pelo = instanciaCabello[5],
                 Prenda1 = instanciaprenda1[3],
-                Prenda2 = instanciaprenda2[0]
+                Prenda2 = instanciaprenda2[0],
+                Fecha = tiempo
                 },
                 new Mujer {
                 IdEntidad = 6,
@@ -91,14 +99,20 @@ namespace AppCETN.Services
                 Fisionomia = instanciaFisio[1],
                 Pelo = instanciaCabello[2],
                 Prenda1 = instanciaprenda1[0],
-                Prenda2 = instanciaprenda2[1]
+                Prenda2 = instanciaprenda2[1],
+                Fecha = tiempo
                 },
-            };
-                foreach (var item in mockItems)
+            };*/
+                if (mockItems != null)
                 {
-                    Items.Add(item);
+                    foreach (var item in mockItems)
+                    {
+                        Items.Add(item);
+                    }
                 }
             }
+
+            JSON = JsonService.Generar(Items);
         }
 
 

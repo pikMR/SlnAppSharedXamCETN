@@ -1,7 +1,8 @@
 ﻿using AppCETN.Models;
 using System.Collections.Generic;
 using AppCETN.Infrastructure.Repositories;
-using System;
+using System.Threading.Tasks;
+using AppSharedXamCETN.Infrastructure.Repositories;
 
 namespace AppCETN.Services
 {
@@ -11,17 +12,19 @@ namespace AppCETN.Services
         /// Devuelve todos los hombres de un archivo de json en forma de lista.
         /// </summary>
         /// <returns></returns>
-        public static IEnumerable<Hombre> GetAllHombresJSON()
+        public static IEnumerable<Humano> GetAllHombresJSON()
         {
-            Newtonsoft.Json.Linq.JObject json = (new HombreRepository()).GetAllJson();
-            IEnumerable<Hombre> ListaHombres = JsonService.Deserializar<IEnumerable<Hombre>>(json);
+            var textJSON = (new HumanoRepository()).GetAllJson();
+            if (string.IsNullOrEmpty(textJSON)) return null;
+
+            IEnumerable<Humano> ListaHombres = JsonService.Deserializar<IEnumerable<Humano>>(textJSON);
             return ListaHombres;
         }
 
-        internal static void InsertHombreJSON(object data)
+        internal static async Task<bool> InsertHombreJSON(object data)
         {
             string strJSON = JsonService.Generar(data);
-            (new HombreRepository()).InsertHombreJSON(strJSON);
+            return await (new HombreRepository()).InsertHombreJSON(strJSON);
         }
 
         public static IEnumerable<Hombre> GetAllHombres()

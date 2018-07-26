@@ -16,6 +16,7 @@ namespace AppSharedXamCETN
             InitializeComponent();
             OnPropertyChanged("itemListViewModel");
             BindingContext = vModelReference;
+            //disabledBtn();
             //var navigation = Navigation.NavigationStack.Count;
         }
 
@@ -28,5 +29,45 @@ namespace AppSharedXamCETN
         {
             await Navigation.PopModalAsync();
         }
+
+         
+
+
+      /*  void BtnOjo_Clicked(object sender, EventArgs e)
+        {
+            disabledBtn();
+            Button btn = (Button)sender;
+            activeSingularBtn(btn);
+            vModelReference.ReloadOjo();
+        }
+
+        void BtnPr_Clicked(object sender, EventArgs e)
+        {
+            disabledBtn();
+            Button btn = (Button)sender;
+            activeSingularBtn(btn);
+            vModelReference.ReloadPrenda();
+        }
+        
+
+        private void disabledBtn()
+        {
+            disabledSingularBtn(_btnOjos);
+            disabledSingularBtn(_btnPrenda);
+        }
+
+        private void disabledSingularBtn(Button btn)
+        {
+            btn.BackgroundColor = Color.FromHex("#ddd"); // select
+            btn.BorderWidth = 0;
+        }
+
+        private void activeSingularBtn(Button btn)
+        {
+            btn.BackgroundColor = Color.FromHex("#aee"); // select
+            btn.BorderWidth = 1;
+            btn.BorderColor = Color.FromHex("#ddd");
+        }
+        */
     }
 }

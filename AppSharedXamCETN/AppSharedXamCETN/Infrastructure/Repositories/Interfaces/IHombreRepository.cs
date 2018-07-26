@@ -9,5 +9,6 @@ namespace AppCETN.Infrastructure.Repositories
     {
         Task<IEnumerable<Hombre>> GetAll();
         JObject GetAllJson();
+        void InsertHombreJSON(object data);
     }
 }
