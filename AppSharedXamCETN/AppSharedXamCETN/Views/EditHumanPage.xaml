@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppSharedXamCETN.Views.EditHumanPage"
+             Title="{Binding ItemHumano.Nombre}"
              >
     <ContentPage.Resources>
         <!--ResourceDictionary>
@@ -24,10 +25,10 @@
             <StackLayout>
                 <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
                     <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
-                        <Button x:Name="_btnHombre" Text="H"  Clicked="BtnHombre_Clicked"/>
+                        <Button x:Name="_btnMujer" Clicked="BtnMujer_Clicked" Image="mujeroff_mini.png" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
                     </StackLayout>
                     <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
-                        <Button x:Name="_btnMujer" Text="M"  Clicked="BtnMujer_Clicked"/>
+                        <Button x:Name="_btnHombre" Clicked="BtnHombre_Clicked" Image="hombreoff_mini.png" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
                     </StackLayout>
                 </StackLayout>
                 <Entry x:Name="entryName" Placeholder="Se llama..." Grid.Row="3"  Text="{Binding ItemHumano.Nombre}" FontSize="Large" HorizontalOptions="Center"/>

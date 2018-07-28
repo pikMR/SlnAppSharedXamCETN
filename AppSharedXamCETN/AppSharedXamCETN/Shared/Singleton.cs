@@ -75,6 +75,7 @@ namespace AppSharedXamCETN.Shared
             catch (System.Exception ex)
             {
                 Debug.WriteLine(ex);
+                throw new Exception("Los datos no han podido ser cargados, asegurate de que la aplicación tiene habilitados los permisos de escritura en disco.");
             }
             finally
             {
@@ -84,7 +85,15 @@ namespace AppSharedXamCETN.Shared
 
         internal async void Update()
         {
-            await CETNDomainService.InsertarHumanoJSON(_lista);
+            try
+            {
+                if (_lista != null && _lista.Count > 0)
+                    await CETNDomainService.InsertarHumanoJSON(_lista);
+            }
+            catch (Exception)
+            {
+                IsBusy = true;
+            }
         }
 
         internal Humano NewHumano()

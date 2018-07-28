@@ -51,7 +51,7 @@ namespace AppCETN.ViewModels
             */
             var mainPage = new EditHumanPage(e.Item);//this could be content page
             var rootPage = new NavigationPage(mainPage);
-            await Navigation.PushAsync(rootPage);
+            await Navigation.PushModalAsync(rootPage);
         }
 
         async  private void LestaOnItemSelectedAsync(object sender, SelectedItemChangedEventArgs e)
@@ -60,7 +60,7 @@ namespace AppCETN.ViewModels
             //SelectedItem = e.SelectedItem;
             var mainPage = new EditHumanPage(e.SelectedItem);//this could be content page
             var rootPage = new NavigationPage(mainPage);
-            await Navigation.PushAsync(rootPage);
+            await Navigation.PushModalAsync(rootPage);
         }
     }
 }

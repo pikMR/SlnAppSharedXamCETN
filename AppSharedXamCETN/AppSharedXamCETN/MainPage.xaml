@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:AppCETN.ViewModels"
              x:Class="AppSharedXamCETN.MainPage"
              x:Name="Root"
+             Title="¿Cuál es tu Nombre?"
              >
     <ScrollView>
         <StackLayout>
@@ -15,7 +16,7 @@
                     <Button x:Name="_btnPrenda" Text="Pr"  Clicked="BtnPr_Clicked"/>
                 </StackLayout>
             </-->
-            <Button x:Name="PressAdd" Text="{Binding Add}" Clicked="AddItem_Clicked"/>
+            <Button x:Name="PressAdd" Clicked="AddItem_Clicked" Image="add.png" VerticalOptions="Center" ContentLayout="Top,0" />
             <!--local:LestaInicioView ItemsSource="{Binding ObHumanos}" ItemClickCommand="{Binding ItemClickCommand}" /-->
             <!--local:LestaInicioView x:Name="RecursoSingleton" ItemsSource="{Binding vModelReference.ListaPantalla1 , Source={x:Reference Root}}"/-->
             <!-- Style="{StaticResource style_mujer}" -->

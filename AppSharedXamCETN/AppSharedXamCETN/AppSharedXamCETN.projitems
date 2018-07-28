@@ -46,6 +46,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\JsonService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\LiteralesService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shared\ColorConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shared\ShowMessage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shared\Singleton.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PickerParaViewModel.cs" />

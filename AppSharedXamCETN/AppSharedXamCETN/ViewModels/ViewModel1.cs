@@ -31,34 +31,35 @@ namespace AppSharedXamCETN
                 ListaPantalla1.Remove(elem);
                 ListaPantalla1.Add(arg);
             });
-            Add = LiteralesService.GetLiteral("lbl_agregar");
+            //Add = LiteralesService.GetLiteral("lbl_agregar");
          }
-
-        /*internal void ReloadOjo()
-        {
-            ObservableCollection<Humano> nueva_list = new ObservableCollection<Humano>();
-            ListaPantalla1.ToList().ForEach(p => { p.AtribSeleccionado = " -> " + p.Ojo; nueva_list.Add(p); });
-            ListaPantalla1.Clear();
-            nueva_list.ToList().ForEach(p => { ListaPantalla1.Add(p); });
-        }
-        internal void ReloadPrenda() {
-            ObservableCollection<Humano> nueva_list = new ObservableCollection<Humano>();
-            ListaPantalla1.ToList().ForEach(p => { p.AtribSeleccionado = " -> " + p.Prenda1; nueva_list.Add(p); });
-            ListaPantalla1.Clear();
-            nueva_list.ToList().ForEach(p => { ListaPantalla1.Add(p); });
-        }*/
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
         public event PropertyChangedEventHandler PropertyChanged;
-
-        #region Elementos visuales
-        private string btnAdd = string.Empty;
-        public string Add 
-        {
-            get { return btnAdd; }
-            set { btnAdd = value; }
-        }
-        #endregion
     }
 }
+
+/*internal void ReloadOjo()
+{
+    ObservableCollection<Humano> nueva_list = new ObservableCollection<Humano>();
+    ListaPantalla1.ToList().ForEach(p => { p.AtribSeleccionado = " -> " + p.Ojo; nueva_list.Add(p); });
+    ListaPantalla1.Clear();
+    nueva_list.ToList().ForEach(p => { ListaPantalla1.Add(p); });
+}
+internal void ReloadPrenda() {
+    ObservableCollection<Humano> nueva_list = new ObservableCollection<Humano>();
+    ListaPantalla1.ToList().ForEach(p => { p.AtribSeleccionado = " -> " + p.Prenda1; nueva_list.Add(p); });
+    ListaPantalla1.Clear();
+    nueva_list.ToList().ForEach(p => { ListaPantalla1.Add(p); });
+}
+
+#region Elementos visuales
+private string btnAdd = string.Empty;
+public string Add 
+{
+    get { return btnAdd; }
+    set { btnAdd = value; }
+}
+#endregion*/
+

@@ -22,21 +22,25 @@ namespace AppSharedXamCETN.Views
         public PickerParaViewModel<string> PickerFisionomia { get; set; }
         public PickerParaViewModel<PrendaSuperior> PickerPrendaSuperior { get; set; }
         public PickerParaViewModel<PrendaInferior> PickerPrendaInferior { get; set; }
+        private string _desc = "";
+        private string _nombre = "";
 
         public EditHumanPage(object item)
         {
             //var navigation = Navigation.NavigationStack.Count;
             //Update = "ACTUALIZAR";
             ItemHumano = Singleton.Instance.Lista.SingleOrDefault(x=>x.IdEntidad == ((Humano)item).IdEntidad) ?? Singleton.Instance.NewHumano();//(Humano)item;
+            _desc = ItemHumano.Descripcion;
+            _nombre = ItemHumano.Nombre;
             _esMujer = (ItemHumano.GetType() == typeof(Mujer));
             setPickers();
             BindingContext = this;
             InitializeComponent();
 
             if (_esMujer == true)
-                FocusOnOff(_btnMujer, _btnHombre, Color.FromRgb(153, 187, 255));
+                FocusOnOff(_btnMujer, _btnHombre, Color.FromRgb(217, 179, 255));
             else
-                FocusOnOff(_btnHombre, _btnMujer, Color.FromRgb(217, 179, 255));
+                FocusOnOff(_btnHombre, _btnMujer, Color.FromRgb(153, 187, 255));
         }
 
         private void setPickers()
@@ -50,15 +54,15 @@ namespace AppSharedXamCETN.Views
             PickerPrendaInferior = new PickerParaViewModel<PrendaInferior> { ListaItem = CETNDomainService.ObtenerValoresPrendaInf(), SelectedItem = ItemHumano.Prenda2 };
         }
 
-        private bool isBasicFill() => !string.IsNullOrEmpty(entryName.Text) || !string.IsNullOrEmpty(entryDesc.Text);
+        private bool isBasicFill() => (!string.IsNullOrEmpty(entryName.Text) && entryName.Text!=_nombre) || (!string.IsNullOrEmpty(entryDesc.Text) && entryDesc.Text != _desc);
 
         public EditHumanPage() {
-            _esNuevo = true;
-            ItemHumano = new Humano();
-            setPickers();
-            BindingContext = this;
-            InitializeComponent();
-            FocusOnOff(_btnMujer, _btnHombre, Color.FromRgb(153, 187, 255));
+                _esNuevo = true;
+                ItemHumano = new Humano();
+                setPickers();
+                BindingContext = this;
+                InitializeComponent();
+                FocusOnOff(_btnMujer, _btnHombre, Color.FromRgb(153, 187, 255));
         }
         
         void BtnHombre_Clicked(object sender, EventArgs e)
@@ -69,7 +73,7 @@ namespace AppSharedXamCETN.Views
 
             _esMujer = false;
             Button btn = (Button)sender;
-            FocusOnOff(btn, _btnMujer, Color.FromRgb(217, 179, 255));
+            FocusOnOff(btn, _btnMujer, Color.FromRgb(153, 187, 255));
         }
 
         void BtnMujer_Clicked(object sender, EventArgs e)
@@ -80,7 +84,7 @@ namespace AppSharedXamCETN.Views
 
             _esMujer = true;
             Button btn = (Button)sender;
-            FocusOnOff(btn,_btnHombre,Color.FromRgb(153, 187, 255));
+            FocusOnOff(btn,_btnHombre, Color.FromRgb(217, 179, 255));
         }
 
         private void FocusOnOff(Button btn_on,Button btn_off,Color color)
@@ -108,18 +112,34 @@ namespace AppSharedXamCETN.Views
 
         protected override bool OnBackButtonPressed()
         {
-            if (IsChangedPickers() || isBasicFill())
+            try
             {
-                if (_esNuevo)
+                if (IsChangedPickers() || isBasicFill())
                 {
-                    ItemHumano = _esMujer ? Singleton.Instance.NewMujerAsync(ItemHumano) :
-                        Singleton.Instance.NewHombreAsync(ItemHumano);
+                    if (_esNuevo)
+                    {
+                        ItemHumano = _esMujer ? Singleton.Instance.NewMujerAsync(ItemHumano) :
+                            Singleton.Instance.NewHombreAsync(ItemHumano);
+                    }
+                    else
+                    {
+                        Singleton.Instance.Update();
+                        if (Singleton.Instance.IsBusy)
+                        {
+                            DisplayAlert("Error", "Los datos no serán persistentes sin permisos de escritura en la aplicación.", "Exit");
+                            return false;
+                        }
+                    }
+                    MessagingCenter.Send<EditHumanPage, Humano>(this, "update", ItemHumano);
                 }
-                else
-                {
-                    Singleton.Instance.Update();
-                }
-                MessagingCenter.Send<EditHumanPage, Humano>(this, "update", ItemHumano);
+            } catch (UnauthorizedAccessException un)
+            {
+                DisplayAlert("Error", un.InnerException.Message, "Exit");
+                return false;
+            }
+            catch (Exception e) {
+                DisplayAlert("Error", e.InnerException.Message, "Exit");
+                return false;
             }
 
             return base.OnBackButtonPressed();
@@ -223,7 +243,7 @@ namespace AppSharedXamCETN.Views
             get { return LiteralesService.GetLiteral("lbl_prenda_inf"); }
         }
         #endregion
-
+        
         /*
             private string btnUpdate = string.Empty;
             public string Update
