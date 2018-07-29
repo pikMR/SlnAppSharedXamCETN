@@ -13,7 +13,9 @@ namespace AppSharedXamCETN.Infrastructure.Repositories
         {
             try
             {
-                var path = global::Android.OS.Environment.ExternalStorageDirectory.AbsolutePath + "/CETN";
+                var path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+                //var path = global::Android.OS.Environment.ExternalStorageDirectory.AbsolutePath + "/CETN";
+                //Environment.GetFolderPath(Environment.SpecialFolder.Personal);
                 //var path = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads);
                 //var filename = "/" + Path.Combine(path.ToString(), DateTime.Now.ToString("CETN_yyyyMM_ddhhmmss") + ".json");
                 var filename = "/" + Path.Combine(path.ToString(), "CETN_data.json");
@@ -27,13 +29,13 @@ namespace AppSharedXamCETN.Infrastructure.Repositories
             catch(UnauthorizedAccessException auth)
             {
                 System.Diagnostics.Debug.WriteLine("GenerarHumanoJSON:data:" + data + " -> ex:"+auth.StackTrace);
-                throw new UnauthorizedAccessException("No se ha podido guardar el elemento en disco, revise los permisos de la aplicación");
+                throw new UnauthorizedAccessException(AppCETN.Services.LiteralesService.GetLiteral("ex_2"));
                 //return await Task.FromResult(false);
             }
             catch (Exception e)
             {
                 System.Diagnostics.Debug.WriteLine("GenerarHumanoJSON:data:"+data+" -> ex:"+e.StackTrace);
-                throw new UnauthorizedAccessException("Se ha producido un error: No se ha podido guardar el elemento en disco, revise los permisos de la aplicación");
+                throw new UnauthorizedAccessException(AppCETN.Services.LiteralesService.GetLiteral("ex_2"));
                 //return await Task.FromResult(false);
             }
             // obtiene el archivo, e inserta el contenido del json,
@@ -45,7 +47,8 @@ namespace AppSharedXamCETN.Infrastructure.Repositories
         {
             try
             {
-                var path = global::Android.OS.Environment.ExternalStorageDirectory.AbsolutePath + "/CETN";
+                var path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+                //var path = global::Android.OS.Environment.ExternalStorageDirectory.AbsolutePath + "/CETN";
                 //var path = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads);
                 var filename = "/" + Path.Combine(path.ToString(), "CETN_data.json");
                 if (!Directory.Exists(path.ToString()))
@@ -61,13 +64,13 @@ namespace AppSharedXamCETN.Infrastructure.Repositories
             catch (UnauthorizedAccessException auth)
             {
                 System.Diagnostics.Debug.WriteLine("GenerarHumanoJSON:data: -> ex:" + auth.StackTrace);
-                throw new UnauthorizedAccessException("No se ha podido guardar el elemento en disco, revise los permisos de la aplicación");
+                throw new UnauthorizedAccessException(AppCETN.Services.LiteralesService.GetLiteral("ex_2"));
                 //return await Task.FromResult(false);
             }
             catch (Exception e)
             {
                 System.Diagnostics.Debug.WriteLine("GenerarHumanoJSON:data: -> ex:" + e.StackTrace);
-                throw new UnauthorizedAccessException("Se ha producido un error: No se ha podido guardar el elemento en disco, revise los permisos de la aplicación");
+                throw new UnauthorizedAccessException(AppCETN.Services.LiteralesService.GetLiteral("ex_2"));
                 //return await Task.FromResult(false);
             }
             return null;

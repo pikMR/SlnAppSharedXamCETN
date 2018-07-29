@@ -126,7 +126,7 @@ namespace AppSharedXamCETN.Views
                         Singleton.Instance.Update();
                         if (Singleton.Instance.IsBusy)
                         {
-                            DisplayAlert("Error", "Los datos no serán persistentes sin permisos de escritura en la aplicación.", "Exit");
+                            DisplayAlert(LiteralesService.GetLiteral("ex_error"), LiteralesService.GetLiteral("ex_1"), LiteralesService.GetLiteral("ex_salida"));
                             return false;
                         }
                     }
@@ -134,11 +134,11 @@ namespace AppSharedXamCETN.Views
                 }
             } catch (UnauthorizedAccessException un)
             {
-                DisplayAlert("Error", un.InnerException.Message, "Exit");
+                DisplayAlert(LiteralesService.GetLiteral("ex_error"), un.InnerException.Message, LiteralesService.GetLiteral("ex_salida"));
                 return false;
             }
             catch (Exception e) {
-                DisplayAlert("Error", e.InnerException.Message, "Exit");
+                DisplayAlert(LiteralesService.GetLiteral("ex_error"), e.InnerException.Message, LiteralesService.GetLiteral("ex_salida"));
                 return false;
             }
 
@@ -242,8 +242,18 @@ namespace AppSharedXamCETN.Views
         {
             get { return LiteralesService.GetLiteral("lbl_prenda_inf"); }
         }
+
+        public string Lblplaceh_name
+        {
+            get { return LiteralesService.GetLiteral("placeh_name"); }
+        }
+
+        public string LblTitulo
+        {
+            get { return LiteralesService.GetLiteral("titulo"); }
+        }
         #endregion
-        
+
         /*
             private string btnUpdate = string.Empty;
             public string Update

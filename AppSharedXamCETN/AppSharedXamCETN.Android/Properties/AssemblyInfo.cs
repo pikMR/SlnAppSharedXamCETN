@@ -6,10 +6,10 @@ using Android.App;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AppSharedXamCETN.Android")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Alzeheimer FUERTE")]
+[assembly: AssemblyDescription("Cuál es tu nombre")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("CETN")]
 [assembly: AssemblyProduct("AppSharedXamCETN.Android")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]

@@ -75,7 +75,7 @@ namespace AppSharedXamCETN.Shared
             catch (System.Exception ex)
             {
                 Debug.WriteLine(ex);
-                throw new Exception("Los datos no han podido ser cargados, asegurate de que la aplicación tiene habilitados los permisos de escritura en disco.");
+                throw new Exception(LiteralesService.GetLiteral("ex_2"));
             }
             finally
             {
