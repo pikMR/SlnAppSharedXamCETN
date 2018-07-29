@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <string-array name="lista_literales">
+    <item>Hva heter du?</item>
+    <item>Jakke</item>
+    <item>Nautica</item>
+    <item>Frakk</item>
+    <item>Skinnjakke</item>
+    <item>Dress</item>
+    <item>Skjorte</item>
+    <item>Jumper</item>
+    <item>Polo T-skjorte</item>
+    <item>T skjorte</item>
+    <item>Jersey</item>
+    <item>jeans</item>
+    <item>Bukser</item>
+    <item>Svøm Kort</item>
+    <item>Kort</item>
+    <item>Sko</item>
+    <item>joggesko</item>
+    <item>Sandal</item>
+    <item>Støvler</item>
+    <item>Annen</item>
+    <item>Alias</item>
+    <item>Høyde</item>
+    <item>Navn</item>
+    <item>Beskrivelse</item>
+    <item>Øyenfarge</item>
+    <item>Overlegen klær</item>
+    <item>Nederste klær</item>
+    <item>Legg til</item>
+    <item>Hva heter du?</item>
+    <item>Hår</item>
+    <item>Kjennetegn</item>
+    <item>Ny kvinne</item>
+    <item>rumpe</item>
+    <item>Bryst</item>
+    <item>Klesplagg</item>
+    <item>fysiognomi</item>
+    <item>Figur</item>
+    <item>BRUN</item>
+    <item>GRØNN</item>
+    <item>BLÅ</item>
+    <item>LITEN</item>
+    <item>MEDIUM</item>
+    <item>STOR</item>
+    <item>BRUN</item>
+    <item>GRØNN</item>
+    <item>BLÅ</item>
+    <item>LITEN</item>
+    <item>MEDIUM</item>
+    <item>STOR</item>
+    <item>SLANK</item>
+    <item>ATLETISK</item>
+    <item>OVERVEKT</item>
+    <item>RUBIO</item>
+    <item>BRUN</item>
+    <item>KASTANJE</item>
+    <item>LANG</item>
+    <item>KORT</item>
+    <item>Dataene vil ikke være vedvarende uten skriftlig tillatelse i søknaden.</item>
+    <item>Feil</item>
+    <item>Exit</item>
+    <item>Dataene kunne ikke lastes inn, sørg for at programmet har diskskrivingsrettigheter aktivert.</item>
+    <item>Navnet er...</item>
+  </string-array>
+  <string-array name="lista_lbl_literales">
+    <item>titulo</item>
+    <item>prenda_superior_hombre_1</item>
+    <item>prenda_superior_hombre_2</item>
+    <item>prenda_superior_hombre_3</item>
+    <item>prenda_superior_hombre_4</item>
+    <item>prenda_superior_hombre_5</item>
+    <item>prenda_superior_hombre_6</item>
+    <item>prenda_superior_hombre_7</item>
+    <item>prenda_superior_hombre_8</item>
+    <item>prenda_superior_hombre_9</item>
+    <item>prenda_superior_hombre_10</item>
+    <item>prenda_inferior_hombre_1</item>
+    <item>prenda_inferior_hombre_2</item>
+    <item>prenda_inferior_hombre_3</item>
+    <item>prenda_inferior_hombre_4</item>
+    <item>calzado_hombre_1</item>
+    <item>calzado_hombre_2</item>
+    <item>calzado_hombre_3</item>
+    <item>calzado_hombre_4</item>
+    <item>lbl_otro</item>
+    <item>lbl_apodo</item>
+    <item>lbl_estatura</item>
+    <item>lbl_nombre</item>
+    <item>lbl_descripcion</item>
+    <item>lbl_ojos</item>
+    <item>lbl_prenda_sup</item>
+    <item>lbl_prenda_inf</item>
+    <item>lbl_agregar</item>
+    <item>lbl_titulo</item>
+    <item>lbl_cabello</item>
+    <item>lbl_caracteristicas</item>
+    <item>lbl_nueva_mujer</item>
+    <item>lbl_nalgas</item>
+    <item>lbl_pecho</item>
+    <item>lbl_vestir</item>
+    <item>lbl_fisionomia</item>
+    <item>lbl_figura</item>
+    <item>color_marron_plural</item>
+    <item>color_verde_plural</item>
+    <item>color_azul_plural</item>
+    <item>tam_1_plural</item>
+    <item>tam_2_plural</item>
+    <item>tam_3_plural</item>
+    <item>color_marron</item>
+    <item>color_verde</item>
+    <item>color_azul</item>
+    <item>tam_1</item>
+    <item>tam_2</item>
+    <item>tam_3</item>
+    <item>figura_delgada</item>
+    <item>figura_atletica</item>
+    <item>figura_sobrepeso</item>
+    <item>color_cabello_1</item>
+    <item>color_cabello_2</item>
+    <item>color_cabello_3</item>
+    <item>tam_cabello_1</item>
+    <item>tam_cabello_2</item>
+    <item>ex_1</item>
+    <item>ex_error</item>
+    <item>ex_salida</item>
+    <item>ex_2</item>
+    <item>placeh_name</item>
+  </string-array>
+</resources>

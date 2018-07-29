@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <string-array name="lista_literales">
+    <item>Quel est ton nom?</item>
+    <item>Veste</item>
+    <item>Nautica</item>
+    <item>Trench-coat</item>
+    <item>Veste de cuir</item>
+    <item>Costume</item>
+    <item>Chemise</item>
+    <item>Sauteur</item>
+    <item>Polo T-shirt</item>
+    <item>T-shirt</item>
+    <item>Jersey</item>
+    <item>jeans</item>
+    <item>Un pantalon</item>
+    <item>Short de bain</item>
+    <item>Court</item>
+    <item>Chaussure</item>
+    <item>Baskets</item>
+    <item>Sandale</item>
+    <item>Bottes</item>
+    <item>Autre</item>
+    <item>Surnom</item>
+    <item>la taille</item>
+    <item>prénom</item>
+    <item>La description</item>
+    <item>Couleur des yeux</item>
+    <item>Vêtement supérieur</item>
+    <item>Vêtement de dessous</item>
+    <item>Ajouter</item>
+    <item>Quel est ton nom?</item>
+    <item>Cheveux</item>
+    <item>Caractéristiques</item>
+    <item>Nouvelle femme</item>
+    <item>Fesses</item>
+    <item>Poitrine</item>
+    <item>Article de vêtements</item>
+    <item>Physionomie</item>
+    <item>Figure</item>
+    <item>MARRON</item>
+    <item>VERT</item>
+    <item>BLEU</item>
+    <item>PETIT</item>
+    <item>MOYEN</item>
+    <item>GROS</item>
+    <item>MARRON</item>
+    <item>VERT</item>
+    <item>BLEU</item>
+    <item>PETIT</item>
+    <item>MOYEN</item>
+    <item>GROS</item>
+    <item>SVELTE</item>
+    <item>ATHLÉTIQUE</item>
+    <item>EN SURPOIDS</item>
+    <item>RUBIO</item>
+    <item>MARRON</item>
+    <item>CHÂTAIGNE</item>
+    <item>LONGUE</item>
+    <item>COURT</item>
+    <item>Les données ne seront pas persistantes sans autorisation d'écriture dans l'application.</item>
+    <item>Erreur</item>
+    <item>Sortie</item>
+    <item>Les données n'ont pas pu être chargées, assurez-vous que l'application dispose d'autorisations d'écriture sur disque activées.</item>
+    <item>Le nom est...</item>
+  </string-array>
+  <string-array name="lista_lbl_literales">
+    <item>titulo</item>
+    <item>prenda_superior_hombre_1</item>
+    <item>prenda_superior_hombre_2</item>
+    <item>prenda_superior_hombre_3</item>
+    <item>prenda_superior_hombre_4</item>
+    <item>prenda_superior_hombre_5</item>
+    <item>prenda_superior_hombre_6</item>
+    <item>prenda_superior_hombre_7</item>
+    <item>prenda_superior_hombre_8</item>
+    <item>prenda_superior_hombre_9</item>
+    <item>prenda_superior_hombre_10</item>
+    <item>prenda_inferior_hombre_1</item>
+    <item>prenda_inferior_hombre_2</item>
+    <item>prenda_inferior_hombre_3</item>
+    <item>prenda_inferior_hombre_4</item>
+    <item>calzado_hombre_1</item>
+    <item>calzado_hombre_2</item>
+    <item>calzado_hombre_3</item>
+    <item>calzado_hombre_4</item>
+    <item>lbl_otro</item>
+    <item>lbl_apodo</item>
+    <item>lbl_estatura</item>
+    <item>lbl_nombre</item>
+    <item>lbl_descripcion</item>
+    <item>lbl_ojos</item>
+    <item>lbl_prenda_sup</item>
+    <item>lbl_prenda_inf</item>
+    <item>lbl_agregar</item>
+    <item>lbl_titulo</item>
+    <item>lbl_cabello</item>
+    <item>lbl_caracteristicas</item>
+    <item>lbl_nueva_mujer</item>
+    <item>lbl_nalgas</item>
+    <item>lbl_pecho</item>
+    <item>lbl_vestir</item>
+    <item>lbl_fisionomia</item>
+    <item>lbl_figura</item>
+    <item>color_marron_plural</item>
+    <item>color_verde_plural</item>
+    <item>color_azul_plural</item>
+    <item>tam_1_plural</item>
+    <item>tam_2_plural</item>
+    <item>tam_3_plural</item>
+    <item>color_marron</item>
+    <item>color_verde</item>
+    <item>color_azul</item>
+    <item>tam_1</item>
+    <item>tam_2</item>
+    <item>tam_3</item>
+    <item>figura_delgada</item>
+    <item>figura_atletica</item>
+    <item>figura_sobrepeso</item>
+    <item>color_cabello_1</item>
+    <item>color_cabello_2</item>
+    <item>color_cabello_3</item>
+    <item>tam_cabello_1</item>
+    <item>tam_cabello_2</item>
+    <item>ex_1</item>
+    <item>ex_error</item>
+    <item>ex_salida</item>
+    <item>ex_2</item>
+    <item>placeh_name</item>
+  </string-array>
+</resources>
