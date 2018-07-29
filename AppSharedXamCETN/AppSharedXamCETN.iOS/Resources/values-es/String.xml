@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <string-array name="lista_literales">
+    <string name="prenda_superior_hombre_1">Abrigo tres cuartos</string>
+    <string name="prenda_superior_hombre_2">Chaqueton Marinero</string>
+    <string name="prenda_superior_hombre_3">Gabardina</string>
+    <string name="prenda_superior_hombre_4">Cazadora Vaquera</string>
+    <string name="prenda_superior_hombre_5">Traje</string>
+    <string name="prenda_superior_hombre_6">Camisa de Vestir</string>
+    <string name="prenda_superior_hombre_7">Camisa sport</string>
+    <string name="prenda_superior_hombre_8">Polo</string>
+    <string name="prenda_superior_hombre_9">Camiseta</string>
+    <string name="prenda_superior_hombre_10">Jersey</string>
+    <string name="prenda_inferior_hombre_1">Vaquero</string>
+    <string name="prenda_inferior_hombre_2">Pantalon</string>
+    <string name="prenda_inferior_hombre_3">Bañador</string>
+    <string name="prenda_inferior_hombre_4">Pantalon Corto</string>
+    <string name="calzado_hombre_1">Zapato</string>
+    <string name="calzado_hombre_2">Deportivos</string>
+    <string name="calzado_hombre_3">Sandalia</string>
+    <string name="calzado_hombre_4">Bota</string>
+    <string name="lit_otro">Otro</string>
+    <string name="lbl_apodo">Apodo</string>
+    <string name="lbl_estatura">Estatura</string>
+    <string name="lbl_nombre">Nombre</string>
+    <string name="lbl_descripcion">Descripción</string>
+    <string name="lbl_ojos">Eyes</string>
+    <string name="lbl_prenda">Top Garment</string>
+  </string-array>
+</resources>
