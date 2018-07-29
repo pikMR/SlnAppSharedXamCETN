@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace AppCETN.Models
 {
@@ -39,12 +38,6 @@ namespace AppCETN.Models
         public Calzado Pie { get; set; }
         public virtual char Sexo { get; set; }
 
-        //public string AtribSeleccionado { get; set; }
-
-        private void SetEstatura()
-        {
-            Estatura = (Altura * 100).ToString() + " cm";
-        }
         public override string ToString()
         {
             /*if (!string.IsNullOrEmpty(AtribSeleccionado))
@@ -52,6 +45,16 @@ namespace AppCETN.Models
                 return base.ToString() + AtribSeleccionado;
             }*/
                 return base.ToString();
+        }
+
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
 
         public Humano(Humano itemHumano)

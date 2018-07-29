@@ -1,30 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using AppCETN.Models;
-using Newtonsoft.Json.Linq;
 
 namespace AppCETN.Infrastructure.Repositories
 {
-    class MujerRepository : IMujerRepository
+    class MujerRepository : IHumanoRepository
     {
-        public IEnumerable<Mujer> GetAll()
+        public Task<bool> GenerarHumanoJSON(string data)
         {
             throw new NotImplementedException();
         }
 
-        public JObject GetAllJson()
+        public string GetAllJson()
         {
             throw new NotImplementedException();
-        }
-
-        public async Task<bool> InsertMujerJSON(object data)
-        {
-            return await Task.FromResult(true);
-        }
-        void IMujerRepository.InsertMujerJSON(object data)
-        {
-
         }
     }
 }

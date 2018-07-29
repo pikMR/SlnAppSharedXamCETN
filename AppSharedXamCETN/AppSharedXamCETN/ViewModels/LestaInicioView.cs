@@ -1,10 +1,14 @@
-﻿using AppSharedXamCETN.Shared;
-using AppSharedXamCETN.Views;
+﻿using AppCETN.Shared;
+using AppCETN.Views;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace AppCETN.ViewModels
 {
+    /// <summary>
+    /// Lista de tipo ListView que se utilizará en la vista inicial.
+    /// Contendrá todos los elementos obtenidos mediante el json de tipo Entidad.
+    /// </summary>
     public class LestaInicioView : ListView
     {
         public static BindableProperty ItemClickCommandProperty =
@@ -15,6 +19,12 @@ namespace AppCETN.ViewModels
                 null
                 );
 
+        /// <summary>
+        /// Permite establecer en tiempo de ejecución el color de la celda de la lista según el tipo de objeto de la lista.
+        /// También establece la fecha actual del elemento como propiedad Detail.
+        /// </summary>
+        /// <param name="item">Cada objeto de la lista del Singleton.</param>
+        /// <returns>Celda de lista</returns>
         protected override Cell CreateDefault(object item)
         {
             Cell nueva = base.CreateDefault(item);
@@ -43,22 +53,15 @@ namespace AppCETN.ViewModels
 
         async private void OnItemTapped(object sender, ItemTappedEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("OnItemTapped" + e.Item);
-            /* if(e.Item != null && this.ItemClickCommand != null && this.ItemClickCommand.CanExecute(e))
-             {
-             ItemClickCommand.Execute(e.Item);
-             await Navigation.PushModalAsync(new NavigationPage(new EditHumanPage()));
-            */
-            var mainPage = new EditHumanPage(e.Item);//this could be content page
+            var mainPage = new EditHumanPage(e.Item);
             var rootPage = new NavigationPage(mainPage);
             await Navigation.PushModalAsync(rootPage);
         }
 
         async  private void LestaOnItemSelectedAsync(object sender, SelectedItemChangedEventArgs e)
         {
-            System.Console.WriteLine("LestaOnItemSelected()");
             //SelectedItem = e.SelectedItem;
-            var mainPage = new EditHumanPage(e.SelectedItem);//this could be content page
+            var mainPage = new EditHumanPage(e.SelectedItem);
             var rootPage = new NavigationPage(mainPage);
             await Navigation.PushModalAsync(rootPage);
         }

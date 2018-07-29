@@ -18,8 +18,7 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Repositories\HombreRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Repositories\HumanoRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Repositories\Interfaces\IHombreRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Repositories\Interfaces\IMujerRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Repositories\Interfaces\IHumanoRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Repositories\MujerRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Services\CETNHombreService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Services\CETNHumanoService.cs" />
@@ -46,18 +45,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\JsonService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\LiteralesService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shared\ColorConverter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shared\ShowMessage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shared\Singleton.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PickerParaViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LestaInicioView.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ViewModel1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\EditHumanPage.xaml.cs">
       <DependentUpon>EditHumanPage.xaml</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Infrastructure\DataModels\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\EditHumanPage.xaml">

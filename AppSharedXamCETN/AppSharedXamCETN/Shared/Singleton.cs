@@ -2,7 +2,6 @@
 using AppCETN.Services;
 using System;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
@@ -10,8 +9,11 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Linq;
 
-namespace AppSharedXamCETN.Shared
+namespace AppCETN.Shared
 {
+    /// <summary>
+    /// Lista Singleton observable que permite utilizar en diferentes vistas los datos de la aplicación.
+    /// </summary>
     public class Singleton : INotifyPropertyChanged
     {
         public static IDataStore<Humano> DataStore => DependencyService.Get<IDataStore<Humano>>() ?? new MockDataStore();
@@ -50,11 +52,13 @@ namespace AppSharedXamCETN.Shared
 
         public virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-        public void ContentCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            
-        }
-
+        /// <summary>
+        /// Borra la lista actual, y agrega los datos actualizados
+        /// lo que permite que se visualizen en la vista inicial de la aplicación
+        /// los datos refrescados, posible mejora obtener los datos directamente con 
+        /// el binding de observables - problematica el tipo de lista creada (ViewModels.LestaInicioView.cs)
+        /// </summary>
+        /// <returns></returns>
         async Task ExecuteLoadHumansCommand()
         {
             if (IsBusy)
@@ -70,7 +74,6 @@ namespace AppSharedXamCETN.Shared
                 {
                     Lista.Add(item);
                 }
-
             }
             catch (System.Exception ex)
             {
@@ -83,10 +86,16 @@ namespace AppSharedXamCETN.Shared
             }
         }
 
-        internal async void Update()
+        /// <summary>
+        /// Actualiza el contenido del json con los valores actualizados de la lista Singleton.
+        /// </summary>
+        internal async void Update(Humano h)
         {
             try
             {
+                var elem = Lista.Single(x => x.IdEntidad == h.IdEntidad);
+                Lista[Lista.IndexOf(elem)] = h;
+
                 if (_lista != null && _lista.Count > 0)
                     await CETNDomainService.InsertarHumanoJSON(_lista);
             }
@@ -96,6 +105,11 @@ namespace AppSharedXamCETN.Shared
             }
         }
 
+        /// <summary>
+        /// Crea un objeto humano para ser rellenado,
+        /// solo hay creados los atributos Id, y Fecha
+        /// </summary>
+        /// <returns></returns>
         internal Humano NewHumano()
         {
             Humano nuevo = new Humano { IdEntidad = Instance.getId(), Fecha = DateTime.Now.ToLocalTime().ToString() };
@@ -103,9 +117,19 @@ namespace AppSharedXamCETN.Shared
             return nuevo;
         }
 
+        /// <summary>
+        /// Obtiene el id+1 del último elemento, si no hay elementos devuelve 0.
+        /// </summary>
+        /// <returns>Id entero</returns>
         private int getId() => (_lista.Count > 0) ?
              _lista.OrderBy(x => x.IdEntidad).Select(x => x.IdEntidad).Last() + 1 : 0;
 
+        /// <summary>
+        /// Crea un objeto de tipo mujer pasandole por parametro un item Humano,
+        /// si se quiere rellenar los atributos especificos del objeto mujer se realizaría mas adelante.
+        /// </summary>
+        /// <param name="itemHumano"></param>
+        /// <returns></returns>
         internal async Task<Humano> NewMujerAsync(Humano itemHumano)
         {
             Mujer nuevo = new Mujer { IdEntidad = Instance.getId() };
@@ -120,12 +144,17 @@ namespace AppSharedXamCETN.Shared
             nuevo.Descripcion = itemHumano.Descripcion;
             if (string.IsNullOrEmpty(itemHumano.Fecha))
                 nuevo.Fecha = DateTime.Now.ToLocalTime().ToString();
-
             _lista.Add(nuevo);
-            await CETNDomainService.InsertarMujerJSON(_lista);
+            await CETNDomainService.InsertarHumanoJSON(_lista);
             return nuevo;
         }
 
+        /// <summary>
+        /// Crea un objeto de tipo hombre pasandole por parametro un item Humano,
+        /// si se quiere rellenar los atributos especificos del objeto hombre se realizaría mas adelante.
+        /// </summary>
+        /// <param name="itemHumano"></param>
+        /// <returns></returns>
         internal async Task<Humano> NewHombreAsync(Humano itemHumano)
         {
             Hombre nuevo = new Hombre { IdEntidad = Instance.getId() };
@@ -141,7 +170,7 @@ namespace AppSharedXamCETN.Shared
             if (string.IsNullOrEmpty(itemHumano.Fecha))
                 nuevo.Fecha = DateTime.Now.ToLocalTime().ToString();
             _lista.Add(nuevo);
-            await CETNDomainService.InsertarHombreJSON(_lista);
+            await CETNDomainService.InsertarHumanoJSON(_lista);
             return nuevo;
         }
     }

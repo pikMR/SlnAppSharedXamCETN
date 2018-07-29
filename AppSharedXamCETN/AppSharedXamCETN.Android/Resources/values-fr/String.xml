@@ -58,10 +58,10 @@
     <item>CHÂTAIGNE</item>
     <item>LONGUE</item>
     <item>COURT</item>
-    <item>Les données ne seront pas persistantes sans autorisation d'écriture dans l'application.</item>
+    <item>Les données ne seront pas persistantes sans autorisation d\'écriture dans l\'application.</item>
     <item>Erreur</item>
     <item>Sortie</item>
-    <item>Les données n'ont pas pu être chargées, assurez-vous que l'application dispose d'autorisations d'écriture sur disque activées.</item>
+    <item>Les données n\'ont pas pu être chargées, assurez-vous que l\'application dispose d\'autorisations d\'écriture sur disque activées.</item>
     <item>Le nom est...</item>
   </string-array>
   <string-array name="lista_lbl_literales">

@@ -2,25 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:AppCETN.ViewModels"
-             x:Class="AppSharedXamCETN.MainPage"
+             x:Class="AppCETN.MainPage"
              x:Name="Root"
-             Title="¿Cuál es tu Nombre?"
+             NavigationPage.HasNavigationBar="False"
              >
     <ScrollView>
         <StackLayout>
-            <!--StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
-                <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
-                    <Button x:Name="_btnOjos" Text="Oj"  Clicked="BtnOjo_Clicked"/>
-                </StackLayout>
-                <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
-                    <Button x:Name="_btnPrenda" Text="Pr"  Clicked="BtnPr_Clicked"/>
-                </StackLayout>
-            </-->
             <Button x:Name="PressAdd" Clicked="AddItem_Clicked" Image="add.png" VerticalOptions="Center" ContentLayout="Top,0" />
-            <!--local:LestaInicioView ItemsSource="{Binding ObHumanos}" ItemClickCommand="{Binding ItemClickCommand}" /-->
-            <!--local:LestaInicioView x:Name="RecursoSingleton" ItemsSource="{Binding vModelReference.ListaPantalla1 , Source={x:Reference Root}}"/-->
-            <!-- Style="{StaticResource style_mujer}" -->
-            <local:LestaInicioView ItemsSource="{Binding ListaPantalla1}" ItemClickCommand="{Binding ItemClickCommand}" />
+            <local:LestaInicioView ItemsSource="{Binding Lista}" ItemClickCommand="{Binding ItemClickCommand}" />
         </StackLayout>
     </ScrollView>
 </ContentPage>

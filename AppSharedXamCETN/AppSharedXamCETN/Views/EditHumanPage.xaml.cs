@@ -5,10 +5,13 @@ using Xamarin.Forms.Xaml;
 using AppCETN.Services;
 using AppCETN.ViewModels;
 using System.Linq;
-using AppSharedXamCETN.Shared;
+using AppCETN.Shared;
 
-namespace AppSharedXamCETN.Views
+namespace AppCETN.Views
 {
+    /// <summary>
+    /// Vista para Creación y Edición de los items de la lista Singleton.
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EditHumanPage : ContentPage
     {
@@ -27,8 +30,6 @@ namespace AppSharedXamCETN.Views
 
         public EditHumanPage(object item)
         {
-            //var navigation = Navigation.NavigationStack.Count;
-            //Update = "ACTUALIZAR";
             ItemHumano = Singleton.Instance.Lista.SingleOrDefault(x=>x.IdEntidad == ((Humano)item).IdEntidad) ?? Singleton.Instance.NewHumano();//(Humano)item;
             _desc = ItemHumano.Descripcion;
             _nombre = ItemHumano.Nombre;
@@ -123,14 +124,13 @@ namespace AppSharedXamCETN.Views
                     }
                     else
                     {
-                        Singleton.Instance.Update();
+                        Singleton.Instance.Update(ItemHumano);
                         if (Singleton.Instance.IsBusy)
                         {
                             DisplayAlert(LiteralesService.GetLiteral("ex_error"), LiteralesService.GetLiteral("ex_1"), LiteralesService.GetLiteral("ex_salida"));
                             return false;
                         }
                     }
-                    MessagingCenter.Send<EditHumanPage, Humano>(this, "update", ItemHumano);
                 }
             } catch (UnauthorizedAccessException un)
             {
@@ -253,26 +253,5 @@ namespace AppSharedXamCETN.Views
             get { return LiteralesService.GetLiteral("titulo"); }
         }
         #endregion
-
-        /*
-            private string btnUpdate = string.Empty;
-            public string Update
-            {
-                get { return btnUpdate; }
-                set { btnUpdate = value; }
-            }
-
-                async void PressUpdate_Clicked(object sender, EventArgs e)
-        {
-            //await Navigation.PopModalAsync();
-            if (IsChangedPickers())
-            {
-                var currentPage = new MainPage();
-                //Application.Current.MainPage = currentPage;
-                await Navigation.PushModalAsync(currentPage);
-                //await Navigation.PushModalAsync(new NavigationPage());
-            }
-        }
-      */
     }
 }

@@ -18,6 +18,6 @@
         public bool Bigote { get; set; }
         [Newtonsoft.Json.JsonProperty("Corbata")]
         public bool Corbata { get; set; }
-        public override char Sexo => 'H';
+        public override char Sexo { get { return 'H'; } }
     }
 }

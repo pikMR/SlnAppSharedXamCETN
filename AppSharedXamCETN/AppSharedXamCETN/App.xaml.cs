@@ -2,7 +2,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation (XamlCompilationOptions.Compile)]
-namespace AppSharedXamCETN
+namespace AppCETN
 {
     public partial class App : Application
     {

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using Foundation;
+﻿using Foundation;
 using UIKit;
+using AppCETN;
 
 namespace AppSharedXamCETN.iOS
 {
@@ -26,7 +23,6 @@ namespace AppSharedXamCETN.iOS
             //var globalLabel = Resources.GetString(Resource.String.lbl_nombre);
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
-
             return base.FinishedLaunching(app, options);
         }
     }

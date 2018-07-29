@@ -10,20 +10,17 @@ namespace AppCETN.Services
     class CETNMujerService
     {
         /// <summary>
-        /// Devuelve todos los hombres de un archivo de json en forma de lista.
+        /// No utilizado - Función de ejemplo
+        /// Devuelve todas las mujeres de un archivo de json en forma de lista.
         /// </summary>
         /// <returns></returns>
-        public static IEnumerable<Mujer> GetAllMujeresJSON()
+        public static IEnumerable<Humano> GetAllMujeresJSON()
         {
-            Newtonsoft.Json.Linq.JObject json = (new MujerRepository()).GetAllJson();
-            IEnumerable<Mujer> ListaHombres = JsonService.Deserializar<IEnumerable<Mujer>>(json.ToString());
-            return ListaHombres;
-        }
+            var textJSON = (new HombreRepository()).GetAllJson();
+            if (string.IsNullOrEmpty(textJSON)) return null;
 
-        internal static async Task<bool> InsertMujerJSON(object data)
-        {
-            string strJSON = JsonService.Generar(data);
-            return await (new MujerRepository()).InsertMujerJSON(strJSON);
+            IEnumerable<Humano> ListaHombres = JsonService.Deserializar<IEnumerable<Mujer>>(textJSON);
+            return ListaHombres;
         }
     }
 }

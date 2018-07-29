@@ -2,7 +2,6 @@
 
 namespace AppCETN.Services
 {
-
     public class LiteralesService
     {
         private static IDictionary<string, string> _map = new Dictionary<string,string>();

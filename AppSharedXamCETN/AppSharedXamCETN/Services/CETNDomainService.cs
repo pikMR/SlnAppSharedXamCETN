@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using AppCETN.Models;
 using System.Threading.Tasks;
 using AppSharedXamCETN.Infrastructure.Services;
@@ -9,6 +7,7 @@ namespace AppCETN.Services
 {
     class CETNDomainService
     {
+        // datos de la aplicación estaticos que hacen referencia a los valores de los modelos.
         private static List<Ojos> instancialistaOjos = null;
         private static List<Cabello> instancialistaCabello = null;
         private static List<string> instanciaListaColorPlural = null;
@@ -21,10 +20,14 @@ namespace AppCETN.Services
         private static List<string> instanciaListaColorCabello = null;
         private static List<string> instanciaListaTamCabello = null;
 
+        /// <summary>
+        /// Recoge los datos del json disponible y los diferencia según su tipo
+        /// </summary>
+        /// <returns>Nueva lista de tipo Humano con la instancía especifica según su tipo</returns>
         public static IEnumerable<Humano> GetAllHombresJSON()
         {
             List<Humano> mixlista = new List<Humano>();
-            var lista = CETNHombreService.GetAllHombresJSON();
+            var lista = CETNHumanoService.GetAllHombresJSON();
             foreach(var human in lista)
             {
                 if (human.Sexo == 'M')
@@ -41,34 +44,17 @@ namespace AppCETN.Services
             return mixlista;
         }
 
-        public static async Task<bool> InsertarHombreJSON(object data)
-        {
-            return await CETNHumanoService.GenerarHumanoJSON(data);
-            //return await CETNHombreService.InsertHombreJSON(data);
-        }
-
-        public static async Task<bool> InsertarMujerJSON(object data)
-        {
-            return await CETNHumanoService.GenerarHumanoJSON(data);
-            //return await CETNMujerService.InsertMujerJSON(data);
-        }
-
+        /// <summary>
+        /// Actualización del json a generar,
+        /// obtiene los datos y se comunica con el servicio adecuado
+        /// que se encargará de generar el nuevo json y guardarlo.
+        /// </summary>
+        /// <param name="data">Lista de elementos de tipo Humano</param>
+        /// <returns></returns>
         public static async Task<bool> InsertarHumanoJSON(object data)
         {
             return await CETNHumanoService.GenerarHumanoJSON(data);
-            //return await CETNMujerService.InsertMujerJSON(data);
         }
-
-        #region Recibir datos JSON
-
-        public async System.Threading.Tasks.Task<IEnumerable<Humano>> GetItemsAsync(bool forceRefresh = false)
-        {
-            return await System.Threading.Tasks.Task.FromResult(GetItemsDesdeJson());
-        }
-
-        private IEnumerable<Humano> GetItemsDesdeJson() => CETNHombreService.GetAllHombresJSON().Concat<Humano>(CETNMujerService.GetAllMujeresJSON());
-
-        #endregion
 
         #region ObtenerValores para picker
         public static List<Ojos> ObtenerValoresOjos()
@@ -92,16 +78,6 @@ namespace AppCETN.Services
             return instancialistaOjos;
         }
 
-        internal static List<string> ObtenerValoresFisionomia() => getFisionomia();
-
-        internal static List<PrendaSuperior> ObtenerValoresPrendaSup() => getComboPrendaSup();
-
-        internal static List<string> ObtenerValoresNalgas() => getComboTam();
-
-        internal static List<PrendaInferior> ObtenerValoresPrendaInf() => getComboPrendaInf();
-
-        internal static List<string> ObtenerValoresPecho() => getComboTam();
-
         internal static List<Cabello> ObtenerValoresCabello()
         {
             if (instancialistaCabello != null)
@@ -123,9 +99,19 @@ namespace AppCETN.Services
             return instancialistaCabello;
         }
 
+        internal static List<string> ObtenerValoresFisionomia() => getFisionomia();
+
+        internal static List<PrendaSuperior> ObtenerValoresPrendaSup() => getComboPrendaSup();
+
+        internal static List<string> ObtenerValoresNalgas() => getComboTam();
+
+        internal static List<PrendaInferior> ObtenerValoresPrendaInf() => getComboPrendaInf();
+
+        internal static List<string> ObtenerValoresPecho() => getComboTam();
+
         #endregion
 
-        #region getCombo Literales
+        #region ObtenerValores para Literales
         private static List<string> getComboTam()
         {
             if (instanciaListaTam != null)
