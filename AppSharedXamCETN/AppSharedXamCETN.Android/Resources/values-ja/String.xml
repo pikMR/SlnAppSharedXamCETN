@@ -63,6 +63,10 @@
     <item>出口</item>
     <item>データをロードできませんでした。アプリケーションにディスク書き込み権限が有効になっていることを確認してください。</item>
     <item>名前は...</item>
+    <item>削除</item>
+    <item>あなたはこの人を消去しますか？</item>
+    <item>はい</item>
+    <item>いいえ</item>
   </string-array>
   <string-array name="lista_lbl_literales">
     <item>titulo</item>
@@ -127,5 +131,9 @@
     <item>ex_salida</item>
     <item>ex_2</item>
     <item>placeh_name</item>
+    <item>del_Eliminar</item>
+    <item>del_seguro</item>
+    <item>del_Si</item>
+    <item>del_No</item>
   </string-array>
 </resources>

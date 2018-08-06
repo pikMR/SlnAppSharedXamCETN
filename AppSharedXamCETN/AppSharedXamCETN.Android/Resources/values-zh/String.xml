@@ -63,6 +63,10 @@
     <item>出口</item>
     <item>无法加载数据，请确保应用程序启用了磁盘写入权限。</item>
     <item>名字是...</item>
+    <item>清除</item>
+    <item>你会抹掉这个人吗？</item>
+    <item>是的</item>
+    <item>不</item>
   </string-array>
   <string-array name="lista_lbl_literales">
     <item>titulo</item>
@@ -127,5 +131,9 @@
     <item>ex_salida</item>
     <item>ex_2</item>
     <item>placeh_name</item>
+    <item>del_Eliminar</item>
+    <item>del_seguro</item>
+    <item>del_Si</item>
+    <item>del_No</item>
   </string-array>
 </resources>

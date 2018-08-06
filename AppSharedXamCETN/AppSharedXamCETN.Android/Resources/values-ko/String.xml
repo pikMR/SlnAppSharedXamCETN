@@ -63,6 +63,10 @@
     <item>출구</item>
     <item>데이터를로드 할 수 없으면 응용 프로그램에 디스크 쓰기 권한이 설정되어 있는지 확인하십시오.</item>
     <item>그 이름은...</item>
+    <item>삭제</item>
+    <item>이 사람을 지울거야, 그렇지?</item>
+    <item>예</item>
+    <item>아니요</item>
   </string-array>
   <string-array name="lista_lbl_literales">
     <item>titulo</item>
@@ -127,5 +131,9 @@
     <item>ex_salida</item>
     <item>ex_2</item>
     <item>placeh_name</item>
+    <item>del_Eliminar</item>
+    <item>del_seguro</item>
+    <item>del_Si</item>
+    <item>del_No</item>
   </string-array>
 </resources>

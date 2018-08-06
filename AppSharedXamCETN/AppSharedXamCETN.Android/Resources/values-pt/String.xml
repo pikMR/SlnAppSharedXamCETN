@@ -63,6 +63,10 @@
     <item>Saída</item>
     <item>Os dados não puderam ser carregados, verifique se o aplicativo tem permissões de gravação em disco ativadas.</item>
     <item>O nome é...</item>
+    <item>Excluir</item>
+    <item>Você vai apagar essa pessoa, claro?</item>
+    <item>Sim</item>
+    <item>Não</item>
   </string-array>
   <string-array name="lista_lbl_literales">
     <item>titulo</item>
@@ -127,5 +131,9 @@
     <item>ex_salida</item>
     <item>ex_2</item>
     <item>placeh_name</item>
+    <item>del_Eliminar</item>
+    <item>del_seguro</item>
+    <item>del_Si</item>
+    <item>del_No</item>
   </string-array>
 </resources>

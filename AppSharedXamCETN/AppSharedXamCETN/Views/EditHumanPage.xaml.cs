@@ -6,6 +6,7 @@ using AppCETN.Services;
 using AppCETN.ViewModels;
 using System.Linq;
 using AppCETN.Shared;
+using System.Diagnostics;
 
 namespace AppCETN.Views
 {
@@ -15,6 +16,7 @@ namespace AppCETN.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EditHumanPage : ContentPage
     {
+        private char _valorInicialSexo;
         private bool _esMujer = true;
         private bool _esNuevo = false;
         public Humano ItemHumano { get; set; }
@@ -30,6 +32,7 @@ namespace AppCETN.Views
 
         public EditHumanPage(object item)
         {
+            _valorInicialSexo = ((Humano)item).Sexo;
             ItemHumano = Singleton.Instance.Lista.SingleOrDefault(x=>x.IdEntidad == ((Humano)item).IdEntidad) ?? Singleton.Instance.NewHumano();//(Humano)item;
             _desc = ItemHumano.Descripcion;
             _nombre = ItemHumano.Nombre;
@@ -38,7 +41,7 @@ namespace AppCETN.Views
             BindingContext = this;
             InitializeComponent();
 
-            if (_esMujer == true)
+            if (_esMujer)
                 FocusOnOff(_btnMujer, _btnHombre, Color.FromRgb(217, 179, 255));
             else
                 FocusOnOff(_btnHombre, _btnMujer, Color.FromRgb(153, 187, 255));
@@ -57,13 +60,15 @@ namespace AppCETN.Views
 
         private bool isBasicFill() => (!string.IsNullOrEmpty(entryName.Text) && entryName.Text!=_nombre) || (!string.IsNullOrEmpty(entryDesc.Text) && entryDesc.Text != _desc);
 
-        public EditHumanPage() {
-                _esNuevo = true;
-                ItemHumano = new Humano();
-                setPickers();
-                BindingContext = this;
-                InitializeComponent();
-                FocusOnOff(_btnMujer, _btnHombre, Color.FromRgb(153, 187, 255));
+        public EditHumanPage()
+        {
+            _esNuevo = true;
+            ItemHumano = new Humano();
+            setPickers();
+            BindingContext = this;
+            InitializeComponent();
+            FocusOnOff(_btnMujer, _btnHombre, Color.FromRgb(153, 187, 255));
+            PressDelete.IsVisible = false;
         }
         
         void BtnHombre_Clicked(object sender, EventArgs e)
@@ -98,24 +103,16 @@ namespace AppCETN.Views
             btn_on.BorderColor = color;
         }
 
-        async void Save_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PopModalAsync();
-        }
+        async void Save_Clicked(object sender, EventArgs e) => await Navigation.PopModalAsync();
 
 
-        private void EnableDisableFocus(object sender, EventArgs e)
-        {
-            (sender as Entry).IsEnabled = true;
-            //Navigation.PushAsync(new NewHumanPage());
-            //(sender as Button).Text = "I was just clicked!";
-        }
+        private void EnableDisableFocus(object sender, EventArgs e) => (sender as Entry).IsEnabled = true;
 
         protected override bool OnBackButtonPressed()
         {
             try
             {
-                if (IsChangedPickers() || isBasicFill())
+                if (IsChangedPickers() || isBasicFill() || ItemHumano.Sexo != _valorInicialSexo)
                 {
                     if (_esNuevo)
                     {
@@ -198,6 +195,16 @@ namespace AppCETN.Views
                 PickerPrendaInferior.isChanged = false;
             }
             return resultado;
+        }
+
+        async void DeleteItem_Clicked(object sender, EventArgs e)
+        {
+            var answer = await DisplayAlert("Eliminar", "Borraras esta persona ¿seguro?", "Si", "No");
+            if (answer)
+            {
+                Singleton.Instance.DeleteElement(ItemHumano.IdEntidad);
+                await Navigation.PopModalAsync();
+            }
         }
 
         #region Labels de la vista

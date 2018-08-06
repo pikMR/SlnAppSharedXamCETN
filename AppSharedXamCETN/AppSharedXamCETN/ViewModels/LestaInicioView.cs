@@ -1,5 +1,6 @@
 ﻿using AppCETN.Shared;
 using AppCETN.Views;
+using System;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -22,14 +23,15 @@ namespace AppCETN.ViewModels
         /// <summary>
         /// Permite establecer en tiempo de ejecución el color de la celda de la lista según el tipo de objeto de la lista.
         /// También establece la fecha actual del elemento como propiedad Detail.
+        /// Se podría agregar imagen a cell con setValue(ImageCell,..)
         /// </summary>
         /// <param name="item">Cada objeto de la lista del Singleton.</param>
         /// <returns>Celda de lista</returns>
         protected override Cell CreateDefault(object item)
         {
             Cell nueva = base.CreateDefault(item);
-            nueva.SetBinding(TextCell.TextColorProperty, new Binding("Sexo",converter:new ColorConverter()) );
-            nueva.SetValue(TextCell.DetailProperty, ((Models.Humano)item).Fecha);
+            nueva.SetBinding(TextCell.TextColorProperty, new Binding("Sexo",converter:new ColorConverter()));
+            nueva.SetValue(TextCell.DetailProperty, ((Models.Humano)item).Fecha);           
             return nueva;
         }
 

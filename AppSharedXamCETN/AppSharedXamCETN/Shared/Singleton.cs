@@ -97,7 +97,7 @@ namespace AppCETN.Shared
                 Lista[Lista.IndexOf(elem)] = h;
 
                 if (_lista != null && _lista.Count > 0)
-                    await CETNDomainService.InsertarHumanoJSON(_lista);
+                    await CETNDomainService.ActualizarHumanoJSON(_lista);
             }
             catch (Exception)
             {
@@ -145,7 +145,7 @@ namespace AppCETN.Shared
             if (string.IsNullOrEmpty(itemHumano.Fecha))
                 nuevo.Fecha = DateTime.Now.ToLocalTime().ToString();
             _lista.Add(nuevo);
-            await CETNDomainService.InsertarHumanoJSON(_lista);
+            await CETNDomainService.ActualizarHumanoJSON(_lista);
             return nuevo;
         }
 
@@ -170,8 +170,15 @@ namespace AppCETN.Shared
             if (string.IsNullOrEmpty(itemHumano.Fecha))
                 nuevo.Fecha = DateTime.Now.ToLocalTime().ToString();
             _lista.Add(nuevo);
-            await CETNDomainService.InsertarHumanoJSON(_lista);
+            await CETNDomainService.ActualizarHumanoJSON(_lista);
             return nuevo;
+        }
+
+        internal async void DeleteElement(int idEntidad)
+        {
+            var elem = Lista.Single(x => x.IdEntidad == idEntidad);
+            Lista.Remove(elem);
+            await CETNDomainService.ActualizarHumanoJSON(_lista);
         }
     }
 }

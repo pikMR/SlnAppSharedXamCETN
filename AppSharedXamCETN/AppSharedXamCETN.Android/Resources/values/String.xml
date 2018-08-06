@@ -63,6 +63,10 @@
     <item>Exit</item>
     <item>The data could not be loaded, make sure that the application has disk write permissions enabled.</item>
     <item>The name is...</item>
+    <item>Remove</item>
+    <item>You will erase this person, sure?</item>
+    <item>Yes</item>
+    <item>No</item>
   </string-array>
   <string-array name="lista_lbl_literales">
     <item>titulo</item>
@@ -127,5 +131,9 @@
     <item>ex_salida</item>
     <item>ex_2</item>
     <item>placeh_name</item>
+    <item>del_Eliminar</item>
+    <item>del_seguro</item>
+    <item>del_Si</item>
+    <item>del_No</item>
   </string-array>
 </resources>

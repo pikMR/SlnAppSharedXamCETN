@@ -51,7 +51,7 @@ namespace AppCETN.Services
         /// </summary>
         /// <param name="data">Lista de elementos de tipo Humano</param>
         /// <returns></returns>
-        public static async Task<bool> InsertarHumanoJSON(object data)
+        public static async Task<bool> ActualizarHumanoJSON(object data)
         {
             return await CETNHumanoService.GenerarHumanoJSON(data);
         }

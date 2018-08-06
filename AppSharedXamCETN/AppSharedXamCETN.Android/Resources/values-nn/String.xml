@@ -63,6 +63,10 @@
     <item>Exit</item>
     <item>Dataene kunne ikke lastes inn, sørg for at programmet har diskskrivingsrettigheter aktivert.</item>
     <item>Navnet er...</item>
+    <item>fjerne</item>
+    <item>Du vil slette denne personen, sikkert?</item>
+    <item>ja</item>
+    <item>ikke</item>
   </string-array>
   <string-array name="lista_lbl_literales">
     <item>titulo</item>
@@ -127,5 +131,9 @@
     <item>ex_salida</item>
     <item>ex_2</item>
     <item>placeh_name</item>
+    <item>del_Eliminar</item>
+    <item>del_seguro</item>
+    <item>del_Si</item>
+    <item>del_No</item>
   </string-array>
 </resources>

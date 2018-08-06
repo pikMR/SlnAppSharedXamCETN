@@ -63,6 +63,10 @@
     <item>Utgång</item>
     <item>Datan kunde inte laddas, se till att programmet har skriv skrivbehörigheter aktiverade.</item>
     <item>Namnet är...</item>
+    <item>ta bort</item>
+    <item>Du kommer att radera den här personen, säkert?</item>
+    <item>Ja</item>
+    <item>inte</item>
   </string-array>
   <string-array name="lista_lbl_literales">
     <item>titulo</item>
@@ -127,5 +131,9 @@
     <item>ex_salida</item>
     <item>ex_2</item>
     <item>placeh_name</item>
+    <item>del_Eliminar</item>
+    <item>del_seguro</item>
+    <item>del_Si</item>
+    <item>del_No</item>
   </string-array>
 </resources>
