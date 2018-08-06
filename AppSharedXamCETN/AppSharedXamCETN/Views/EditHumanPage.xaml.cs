@@ -199,7 +199,10 @@ namespace AppCETN.Views
 
         async void DeleteItem_Clicked(object sender, EventArgs e)
         {
-            var answer = await DisplayAlert("Eliminar", "Borraras esta persona ¿seguro?", "Si", "No");
+            var answer = await DisplayAlert(LiteralesService.GetLiteral("del_Eliminar"),
+                LiteralesService.GetLiteral("del_seguro"),
+                "del_Si",
+                "del_No");
             if (answer)
             {
                 Singleton.Instance.DeleteElement(ItemHumano.IdEntidad);
