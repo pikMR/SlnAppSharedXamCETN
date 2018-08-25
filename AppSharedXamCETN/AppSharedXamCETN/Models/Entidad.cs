@@ -14,6 +14,8 @@
         public int IdEntidad{ get; set; }
         [Newtonsoft.Json.JsonProperty("Fecha")]
         public string Fecha { get; set; }
+        [Newtonsoft.Json.JsonProperty("FotoSrc")]
+        public string Photo { get; set; }
 
         public object Clone()
         {

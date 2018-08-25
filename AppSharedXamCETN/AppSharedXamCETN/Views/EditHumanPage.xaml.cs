@@ -6,7 +6,10 @@ using AppCETN.Services;
 using AppCETN.ViewModels;
 using System.Linq;
 using AppCETN.Shared;
-using System.Diagnostics;
+using Plugin.Media;
+using Plugin.Media.Abstractions;
+using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
 
 namespace AppCETN.Views
 {
@@ -40,6 +43,10 @@ namespace AppCETN.Views
             setPickers();
             BindingContext = this;
             InitializeComponent();
+            if (!String.IsNullOrEmpty(ItemHumano.Photo))
+            {
+                CambiarImagen(ItemHumano.Photo);
+            }
 
             if (_esMujer)
                 FocusOnOff(_btnMujer, _btnHombre, Color.FromRgb(217, 179, 255));
@@ -82,6 +89,66 @@ namespace AppCETN.Views
             FocusOnOff(btn, _btnMujer, Color.FromRgb(153, 187, 255));
         }
 
+        async void BtnCamara_Clicked(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            btn.BackgroundColor = Color.FromHex("#aee"); // select
+            btn.Opacity = 1;
+            btn.BorderWidth = 1;
+
+            // if you want to take a picture use TakePhotoAsync instead of PickPhotoAsync
+            var storageStatus = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Storage);
+            if (storageStatus == PermissionStatus.Granted)
+            {
+                //! added using Plugin.Media;
+                await CrossMedia.Current.Initialize();
+
+                //// if you want to take a picture use this
+                // if(!CrossMedia.Current.IsTakePhotoSupported || !CrossMedia.Current.IsCameraAvailable)
+                /// if you want to select from the gallery use this
+                if (!CrossMedia.Current.IsPickPhotoSupported)
+                {
+                    await DisplayAlert("Not supported", "Your device does not currently support this functionality", "Ok");
+                    return;
+                }
+
+                //! added using Plugin.Media.Abstractions;
+                // if you want to take a picture use StoreCameraMediaOptions instead of PickMediaOptions
+                var mediaOptions = new PickMediaOptions()
+                {
+                    PhotoSize = PhotoSize.Medium
+                };
+
+                var selectedImageFile = await CrossMedia.Current.PickPhotoAsync(mediaOptions);
+
+                if (selectedImageFile == null)
+                {
+                    await DisplayAlert("Error", "Could not get the image, please try again.", "Ok");
+                    return;
+                }
+                ItemHumano.Photo = selectedImageFile.Path;
+                CambiarImagen(selectedImageFile.Path);
+            }
+        }
+
+        void CambiarImagen(string path)
+        {
+            try
+            {
+                ImageSource auximg = ImageSource.FromFile(path);
+                if (auximg != null)
+                {
+                    _btnCamara.IsVisible = false;
+                    _imgPhoto.Source = auximg;
+                    _imgPhoto.IsVisible = true;
+                }
+            }
+            catch (Exception)
+            {
+                DisplayAlert("Error", "No es posible cargar la foto.", "Ok");
+            }
+        }
+
         void BtnMujer_Clicked(object sender, EventArgs e)
         {
             // edit y cambio
@@ -93,6 +160,12 @@ namespace AppCETN.Views
             FocusOnOff(btn,_btnHombre, Color.FromRgb(217, 179, 255));
         }
 
+        /// <summary>
+        /// Activa y desactiva boton.
+        /// </summary>
+        /// <param name="btn_on">boton que se activa</param>
+        /// <param name="btn_off">boton que se desactiva</param>
+        /// <param name="color">color para activar</param>
         private void FocusOnOff(Button btn_on,Button btn_off,Color color)
         {
             btn_off.BackgroundColor = Color.FromHex("#ddd");
@@ -112,7 +185,7 @@ namespace AppCETN.Views
         {
             try
             {
-                if (IsChangedPickers() || isBasicFill() || ItemHumano.Sexo != _valorInicialSexo)
+                if (IsChangedPickers() || isBasicFill() || ItemHumano.Sexo != _valorInicialSexo || !String.IsNullOrEmpty(ItemHumano.Photo))
                 {
                     if (_esNuevo)
                     {

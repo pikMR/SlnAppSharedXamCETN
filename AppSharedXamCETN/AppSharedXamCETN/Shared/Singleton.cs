@@ -142,6 +142,7 @@ namespace AppCETN.Shared
             nuevo.Prenda2 = itemHumano.Prenda2;
             nuevo.Nombre = itemHumano.Nombre;
             nuevo.Descripcion = itemHumano.Descripcion;
+            nuevo.Photo = itemHumano.Photo;
             if (string.IsNullOrEmpty(itemHumano.Fecha))
                 nuevo.Fecha = DateTime.Now.ToLocalTime().ToString();
             _lista.Add(nuevo);
@@ -167,6 +168,7 @@ namespace AppCETN.Shared
             nuevo.Prenda2 = itemHumano.Prenda2;
             nuevo.Nombre = itemHumano.Nombre;
             nuevo.Descripcion = itemHumano.Descripcion;
+            nuevo.Photo = itemHumano.Photo;
             if (string.IsNullOrEmpty(itemHumano.Fecha))
                 nuevo.Fecha = DateTime.Now.ToLocalTime().ToString();
             _lista.Add(nuevo);

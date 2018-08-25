@@ -14,6 +14,10 @@
                             <Button x:Name="_btnMujer" Clicked="BtnMujer_Clicked" Image="mujeroff_mini.png" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
                         </StackLayout>
                         <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                            <Image x:Name="_imgPhoto" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" WidthRequest="100" HeightRequest="150" IsVisible="False" />
+                            <Button x:Name="_btnCamara" Clicked="BtnCamara_Clicked" Image="camara.png" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
                             <Button x:Name="_btnHombre" Clicked="BtnHombre_Clicked" Image="hombreoff_mini.png" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
                         </StackLayout>
                     </StackLayout>

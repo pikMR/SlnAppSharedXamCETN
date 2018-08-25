@@ -1,6 +1,7 @@
 ﻿using Android.Content.PM;
 using Android.OS;
 using AppCETN;
+using Plugin.Permissions;
 
 namespace AppSharedXamCETN.Droid
 {
@@ -20,12 +21,17 @@ namespace AppSharedXamCETN.Droid
             LoadApplication(new App());
         }
 
-       /* protected override void OnPause()
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
         {
-            base.OnPause();
-            System.Console.WriteLine("1 ====> savedata");
-            System.Diagnostics.Debug.WriteLine("2 ===> savedata");
-        }*/
+            PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        /* protected override void OnPause()
+         {
+             base.OnPause();
+             System.Console.WriteLine("1 ====> savedata");
+             System.Diagnostics.Debug.WriteLine("2 ===> savedata");
+         }*/
     }
 }
 
