@@ -67,6 +67,10 @@
     <item>Você vai apagar essa pessoa, claro?</item>
     <item>Sim</item>
     <item>Não</item>
+    <item>Está bem.</item>
+    <item>Não suportado.</item>
+    <item>Atualmente, o seu dispositivo não suporta esta funcionalidade.</item>
+    <item>Não foi possível obter a imagem, por favor, tente novamente.</item>
   </string-array>
   <string-array name="lista_lbl_literales">
     <item>titulo</item>
@@ -135,5 +139,9 @@
     <item>del_seguro</item>
     <item>del_Si</item>
     <item>del_No</item>
+    <item>lbl_ok</item>
+    <item>lbl_not_sup</item>
+    <item>lbl_device</item>
+    <item>lbl_no_image</item>
   </string-array>
 </resources>

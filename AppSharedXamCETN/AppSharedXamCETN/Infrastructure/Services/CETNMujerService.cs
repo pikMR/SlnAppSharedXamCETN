@@ -1,9 +1,6 @@
 ﻿using AppCETN.Infrastructure.Repositories;
 using AppCETN.Models;
-using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AppCETN.Services
 {

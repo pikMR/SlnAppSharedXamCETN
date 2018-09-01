@@ -67,6 +67,10 @@
     <item>あなたはこの人を消去しますか？</item>
     <item>はい</item>
     <item>いいえ</item>
+    <item>Ok</item>
+    <item>サポートされていません。</item>
+    <item>お使いの端末は現在この機能をサポートしていません。</item>
+    <item>イメージを取得できませんでした。もう一度お試しください。</item>
   </string-array>
   <string-array name="lista_lbl_literales">
     <item>titulo</item>
@@ -135,5 +139,9 @@
     <item>del_seguro</item>
     <item>del_Si</item>
     <item>del_No</item>
+    <item>lbl_ok</item>
+    <item>lbl_not_sup</item>
+    <item>lbl_device</item>
+    <item>lbl_no_image</item>
   </string-array>
 </resources>

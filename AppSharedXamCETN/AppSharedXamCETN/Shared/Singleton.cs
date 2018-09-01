@@ -127,50 +127,30 @@ namespace AppCETN.Shared
         /// <summary>
         /// Crea un objeto de tipo mujer pasandole por parametro un item Humano,
         /// si se quiere rellenar los atributos especificos del objeto mujer se realizaría mas adelante.
+        /// Metodo parecido a <see cref="NewHombreAsync"/> - se separa la funcionalidad ya que podrían modificarse sus atributos.
         /// </summary>
         /// <param name="itemHumano"></param>
         /// <returns></returns>
         internal async Task<Humano> NewMujerAsync(Humano itemHumano)
         {
-            Mujer nuevo = new Mujer { IdEntidad = Instance.getId() };
-            nuevo.Ojo = itemHumano.Ojo;
-            nuevo.Pelo = itemHumano.Pelo;
-            nuevo.Pecho = itemHumano.Pecho;
-            nuevo.Culo = itemHumano.Culo;
-            nuevo.Fisionomia = itemHumano.Fisionomia;
-            nuevo.Prenda1 = itemHumano.Prenda1;
-            nuevo.Prenda2 = itemHumano.Prenda2;
-            nuevo.Nombre = itemHumano.Nombre;
-            nuevo.Descripcion = itemHumano.Descripcion;
-            nuevo.Photo = itemHumano.Photo;
-            if (string.IsNullOrEmpty(itemHumano.Fecha))
-                nuevo.Fecha = DateTime.Now.ToLocalTime().ToString();
-            _lista.Add(nuevo);
+            Mujer nueva = new Mujer(itemHumano);
+            nueva.IdEntidad = Instance.getId();
+            _lista.Add(nueva);
             await CETNDomainService.ActualizarHumanoJSON(_lista);
-            return nuevo;
+            return nueva;
         }
 
         /// <summary>
         /// Crea un objeto de tipo hombre pasandole por parametro un item Humano,
         /// si se quiere rellenar los atributos especificos del objeto hombre se realizaría mas adelante.
+        /// Metodo parecido a <see cref="NewMujerAsync"/> - se separa la funcionalidad ya que podrían modificarse sus atributos.
         /// </summary>
         /// <param name="itemHumano"></param>
         /// <returns></returns>
         internal async Task<Humano> NewHombreAsync(Humano itemHumano)
         {
-            Hombre nuevo = new Hombre { IdEntidad = Instance.getId() };
-            nuevo.Ojo = itemHumano.Ojo;
-            nuevo.Pelo = itemHumano.Pelo;
-            nuevo.Pecho = itemHumano.Pecho;
-            nuevo.Culo = itemHumano.Culo;
-            nuevo.Fisionomia = itemHumano.Fisionomia;
-            nuevo.Prenda1 = itemHumano.Prenda1;
-            nuevo.Prenda2 = itemHumano.Prenda2;
-            nuevo.Nombre = itemHumano.Nombre;
-            nuevo.Descripcion = itemHumano.Descripcion;
-            nuevo.Photo = itemHumano.Photo;
-            if (string.IsNullOrEmpty(itemHumano.Fecha))
-                nuevo.Fecha = DateTime.Now.ToLocalTime().ToString();
+            Hombre nuevo = new Hombre(itemHumano);
+            nuevo.IdEntidad = Instance.getId();
             _lista.Add(nuevo);
             await CETNDomainService.ActualizarHumanoJSON(_lista);
             return nuevo;

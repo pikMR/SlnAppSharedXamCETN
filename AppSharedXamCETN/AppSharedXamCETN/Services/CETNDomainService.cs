@@ -1,13 +1,15 @@
 ﻿using System.Collections.Generic;
 using AppCETN.Models;
 using System.Threading.Tasks;
-using AppSharedXamCETN.Infrastructure.Services;
 
 namespace AppCETN.Services
 {
     class CETNDomainService
     {
-        // datos de la aplicación estaticos que hacen referencia a los valores de los modelos.
+        /// <summary>
+        /// <see cref="CambioPicker"/> comprueba si se ha realizado alguna modificación en los selectores.
+        /// </summary>
+        public static bool CambioPicker = false;
         private static List<Ojos> instancialistaOjos = null;
         private static List<Cabello> instancialistaCabello = null;
         private static List<string> instanciaListaColorPlural = null;
@@ -28,6 +30,9 @@ namespace AppCETN.Services
         {
             List<Humano> mixlista = new List<Humano>();
             var lista = CETNHumanoService.GetAllHombresJSON();
+            if (lista == null)
+                return mixlista;
+
             foreach(var human in lista)
             {
                 if (human.Sexo == 'M')

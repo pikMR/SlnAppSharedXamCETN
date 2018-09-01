@@ -1,10 +1,9 @@
 ﻿using AppCETN.Models;
-using AppCETN.Services;
 using AppCETN.Infrastructure.Repositories;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace AppSharedXamCETN.Infrastructure.Services
+namespace AppCETN.Services
 {
     class CETNHumanoService
     {
@@ -23,8 +22,14 @@ namespace AppSharedXamCETN.Infrastructure.Services
             var textJSON = (new HumanoRepository()).GetAllJson();
             if (string.IsNullOrEmpty(textJSON)) return null;
 
-            IEnumerable<Humano> ListaHombres = JsonService.Deserializar<IEnumerable<Humano>>(textJSON);
-            return ListaHombres;
+            try
+            {
+                return JsonService.Deserializar<IEnumerable<Humano>>(textJSON);
+            }
+            catch (System.Exception)
+            {
+                return new List<Humano>();
+            }
         }
     }
 }

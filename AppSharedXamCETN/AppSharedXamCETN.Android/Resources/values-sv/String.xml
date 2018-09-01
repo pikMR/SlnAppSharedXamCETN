@@ -67,6 +67,10 @@
     <item>Du kommer att radera den här personen, säkert?</item>
     <item>Ja</item>
     <item>inte</item>
+    <item>Ok</item>
+    <item>Stöds inte.</item>
+    <item>Din enhet stöder för närvarande inte denna funktion.</item>
+    <item>Det gick inte att få bilden, var god försök igen.</item>
   </string-array>
   <string-array name="lista_lbl_literales">
     <item>titulo</item>
@@ -135,5 +139,9 @@
     <item>del_seguro</item>
     <item>del_Si</item>
     <item>del_No</item>
+    <item>lbl_ok</item>
+    <item>lbl_not_sup</item>
+    <item>lbl_device</item>
+    <item>lbl_no_image</item>
   </string-array>
 </resources>

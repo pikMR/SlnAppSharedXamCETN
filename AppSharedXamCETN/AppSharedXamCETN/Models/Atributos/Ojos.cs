@@ -1,4 +1,6 @@
-﻿namespace AppCETN.Models
+﻿using System.Collections.Generic;
+
+namespace AppCETN.Models
 {
     public class Ojos
     {
@@ -17,12 +19,20 @@
 
         public override bool Equals(object obj)
         {
-            return base.Equals(obj);
+            var ojos = obj as Ojos;
+            return ojos != null &&
+                   Color == ojos.Color &&
+                   Tam == ojos.Tam &&
+                   Nombre == ojos.Nombre;
         }
 
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+            var hashCode = -1920214191;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Color);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Tam);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Nombre);
+            return hashCode;
         }
 
         public override string ToString()

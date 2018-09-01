@@ -67,6 +67,10 @@
     <item>Du vil slette denne personen, sikkert?</item>
     <item>ja</item>
     <item>ikke</item>
+    <item>Ok</item>
+    <item>Ikke støttet.</item>
+    <item>Enheten støtter ikke denne funksjonen for øyeblikket.</item>
+    <item>Kunne ikke få bildet, prøv igjen.</item>
   </string-array>
   <string-array name="lista_lbl_literales">
     <item>titulo</item>
@@ -135,5 +139,9 @@
     <item>del_seguro</item>
     <item>del_Si</item>
     <item>del_No</item>
+    <item>lbl_ok</item>
+    <item>lbl_not_sup</item>
+    <item>lbl_device</item>
+    <item>lbl_no_image</item>
   </string-array>
 </resources>

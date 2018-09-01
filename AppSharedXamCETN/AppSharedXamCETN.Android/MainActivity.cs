@@ -25,13 +25,6 @@ namespace AppSharedXamCETN.Droid
         {
             PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
-
-        /* protected override void OnPause()
-         {
-             base.OnPause();
-             System.Console.WriteLine("1 ====> savedata");
-             System.Diagnostics.Debug.WriteLine("2 ===> savedata");
-         }*/
     }
 }
 

@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 
 namespace AppCETN.ViewModels
 {
     public class PickerParaViewModel<T> : INotifyPropertyChanged
     {
-        public bool isChanged {get;set;}
+        public string PickerName { get; set; }
+        public Models.Humano humanoSeleccionado;
 
         List<T> listaItem;
         public List<T> ListaItem
@@ -23,7 +25,6 @@ namespace AppCETN.ViewModels
             }
         }
 
-
         T selectedItem;
         public T SelectedItem
         {
@@ -32,7 +33,6 @@ namespace AppCETN.ViewModels
             {
                 if(selectedItem != null && !selectedItem.Equals(value))
                 { 
-                  isChanged = true;
                   selectedItem = value;
                   OnPropertyChanged();
                 }
@@ -46,7 +46,10 @@ namespace AppCETN.ViewModels
                         }
                         else
                         {
-                            selectedItem = (T)Activator.CreateInstance(typeof(T));
+                            if (value == null)
+                                selectedItem = (T)Activator.CreateInstance(typeof(T));
+                            else
+                                selectedItem = value;
                         }
                     }
                 }
@@ -73,6 +76,10 @@ namespace AppCETN.ViewModels
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
+            Services.CETNDomainService.CambioPicker = true;
+            var tipo = humanoSeleccionado.GetType();
+            var nombre = String.IsNullOrEmpty(PickerName) ? SelectedItem.GetType().Name : PickerName;
+            tipo.GetProperty(nombre, BindingFlags.Instance | BindingFlags.Public).SetValue(humanoSeleccionado, selectedItem, null);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 

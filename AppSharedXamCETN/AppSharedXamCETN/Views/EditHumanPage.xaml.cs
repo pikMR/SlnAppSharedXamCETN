@@ -19,9 +19,36 @@ namespace AppCETN.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EditHumanPage : ContentPage
     {
+        /// <summary>
+        /// Variable para controlar el cambio de sexo con un Humano seleccionado.
+        /// </summary>
         private char _valorInicialSexo;
+        /// <summary>
+        /// Variable que permite determinar el focus en el botón hombre mujer
+        /// y que permite tener un control de los cambios entre clase hombre mujer
+        /// </summary>
+        /// <remarks>
+        /// ver <see cref="BtnHombre_Clicked"/> y <see cref="BtnMujer_Clicked"/>
+        /// </remarks>
         private bool _esMujer = true;
+        /// <summary>
+        /// Variable que permite discernir si el elemento de la vista es un elemento creado de nuevo
+        /// o un elemento seleccionado.
+        /// </summary>
         private bool _esNuevo = false;
+        /// <summary>
+        /// Variable que permite controlar el cambio del elemento editable de tipo Entry <see cref="entryDesc"/>
+        /// que podemos encontrar en el archivo xaml de la vista.
+        /// </summary>
+        /// <remarks>Ver <see cref="isBasicFill"/></remarks>
+        private string _desc = "";
+        /// <summary>
+        /// Variable que permite controlar el cambio del elemento editable de tipo Entry <see cref="entryName"/>
+        /// que podemos encontrar en el archivo xaml de la vista.
+        /// </summary>
+        /// <remarks> Ver <see cref="isBasicFill"/></remarks>
+        private string _nombre = "";
+
         public Humano ItemHumano { get; set; }
         public PickerParaViewModel<Ojos> PickerOjos { get; set; }
         public PickerParaViewModel<Cabello> PickerCabello { get; set; }
@@ -30,9 +57,12 @@ namespace AppCETN.Views
         public PickerParaViewModel<string> PickerFisionomia { get; set; }
         public PickerParaViewModel<PrendaSuperior> PickerPrendaSuperior { get; set; }
         public PickerParaViewModel<PrendaInferior> PickerPrendaInferior { get; set; }
-        private string _desc = "";
-        private string _nombre = "";
 
+        /// <summary>
+        /// Rellena la vista con Humano seleccionado.
+        /// </summary>
+        /// <param name="item"> Objeto de tipo Humano, Mujer o Hombre.</param>
+        /// <remarks>Ver Lista seleccionable en <see cref="LestaInicioView.OnItemTapped(object, ItemTappedEventArgs)"/></remarks>
         public EditHumanPage(object item)
         {
             _valorInicialSexo = ((Humano)item).Sexo;
@@ -54,19 +84,12 @@ namespace AppCETN.Views
                 FocusOnOff(_btnHombre, _btnMujer, Color.FromRgb(153, 187, 255));
         }
 
-        private void setPickers()
-        {
-            PickerOjos = new PickerParaViewModel<Ojos> { ListaItem = CETNDomainService.ObtenerValoresOjos(), SelectedItem = ItemHumano.Ojo };
-            PickerCabello = new PickerParaViewModel<Cabello> { ListaItem = CETNDomainService.ObtenerValoresCabello(), SelectedItem = ItemHumano.Pelo };
-            PickerPecho = new PickerParaViewModel<string> { ListaItem = CETNDomainService.ObtenerValoresPecho(), SelectedItem = ItemHumano.Pecho };
-            PickerNalgas = new PickerParaViewModel<string> { ListaItem = CETNDomainService.ObtenerValoresNalgas(), SelectedItem = ItemHumano.Culo };
-            PickerFisionomia = new PickerParaViewModel<string> { ListaItem = CETNDomainService.ObtenerValoresFisionomia(), SelectedItem = ItemHumano.Fisionomia };
-            PickerPrendaSuperior = new PickerParaViewModel<PrendaSuperior> { ListaItem = CETNDomainService.ObtenerValoresPrendaSup(), SelectedItem = ItemHumano.Prenda1 };
-            PickerPrendaInferior = new PickerParaViewModel<PrendaInferior> { ListaItem = CETNDomainService.ObtenerValoresPrendaInf(), SelectedItem = ItemHumano.Prenda2 };
-        }
-
-        private bool isBasicFill() => (!string.IsNullOrEmpty(entryName.Text) && entryName.Text!=_nombre) || (!string.IsNullOrEmpty(entryDesc.Text) && entryDesc.Text != _desc);
-
+        /// <summary>
+        /// Constructor que utiliza la vista para visualizar un elemento creado desde 0
+        /// </summary>
+        /// <remarks>
+        /// Ver botón de añadir en <see cref="MainPage.AddItem_Clicked(object, EventArgs)"/> 
+        /// </remarks>
         public EditHumanPage()
         {
             _esNuevo = true;
@@ -77,7 +100,85 @@ namespace AppCETN.Views
             FocusOnOff(_btnMujer, _btnHombre, Color.FromRgb(153, 187, 255));
             PressDelete.IsVisible = false;
         }
-        
+
+        /// <summary>
+        /// Rellena el valor de los elementos Picker de la lista y
+        /// determina el valor seleccionado por el usuario
+        /// </summary>
+        /// <remarks>
+        /// Las funciones ObtenerValores... son funciones que usan el patrón Singleton,
+        /// no es necesario la recarga de los elementos.
+        /// </remarks>
+        private void setPickers()
+        {
+            CETNDomainService.CambioPicker = false;
+            PickerOjos = new PickerParaViewModel<Ojos> { ListaItem = CETNDomainService.ObtenerValoresOjos(), SelectedItem = ItemHumano.Ojos , humanoSeleccionado = ItemHumano};
+            PickerCabello = new PickerParaViewModel<Cabello> { ListaItem = CETNDomainService.ObtenerValoresCabello(), SelectedItem = ItemHumano.Cabello, humanoSeleccionado = ItemHumano };
+            PickerPecho = new PickerParaViewModel<string> { PickerName = nameof(ItemHumano.Pecho),ListaItem = CETNDomainService.ObtenerValoresPecho(), SelectedItem = ItemHumano.Pecho, humanoSeleccionado = ItemHumano };
+            PickerNalgas = new PickerParaViewModel<string> { PickerName = nameof(ItemHumano.Culo),ListaItem = CETNDomainService.ObtenerValoresNalgas(), SelectedItem = ItemHumano.Culo, humanoSeleccionado = ItemHumano };
+            PickerFisionomia = new PickerParaViewModel<string> { PickerName = nameof(ItemHumano.Fisionomia),ListaItem = CETNDomainService.ObtenerValoresFisionomia(), SelectedItem = ItemHumano.Fisionomia, humanoSeleccionado = ItemHumano };
+            PickerPrendaSuperior = new PickerParaViewModel<PrendaSuperior> { ListaItem = CETNDomainService.ObtenerValoresPrendaSup(), SelectedItem = ItemHumano.PrendaSuperior, humanoSeleccionado = ItemHumano };
+            PickerPrendaInferior = new PickerParaViewModel<PrendaInferior> { ListaItem = CETNDomainService.ObtenerValoresPrendaInf(), SelectedItem = ItemHumano.PrendaInferior, humanoSeleccionado = ItemHumano };
+        }
+
+        /// <summary>
+        /// Comprueba si se ha agregado un Nombre o Descripción en el formulario.
+        /// </summary>
+        /// <returns> True existe una modificación por parte del usuario, false no existe modificación. </returns>
+        private bool isBasicFill() => (!string.IsNullOrEmpty(entryName.Text) && entryName.Text!=_nombre) || (!string.IsNullOrEmpty(entryDesc.Text) && entryDesc.Text != _desc);
+
+        #region Elementos interactivos
+        /// <summary>
+        /// Sobrecarga de la función que permite a Android volver a la pantalla anterior.
+        /// La particularidad es que cuando volvemos hacia atrás guardamos los datos que se han rellenado
+        /// en el caso de haber realizado algún cambio.
+        /// </summary>
+        /// <returns></returns>
+        protected override bool OnBackButtonPressed()
+        {
+            try
+            {
+                if (CETNDomainService.CambioPicker ||
+                    isBasicFill() ||
+                    ItemHumano.Sexo != _valorInicialSexo ||
+                    !String.IsNullOrEmpty(ItemHumano.Photo))
+                {
+                    if (_esNuevo)
+                    {
+                        ItemHumano = _esMujer ? Singleton.Instance.NewMujerAsync(ItemHumano) :
+                            Singleton.Instance.NewHombreAsync(ItemHumano);
+                    }
+                    else
+                    {
+                        Singleton.Instance.Update(ItemHumano);
+                        if (Singleton.Instance.IsBusy)
+                        {
+                            DisplayAlert(LiteralesService.GetLiteral("ex_error"), LiteralesService.GetLiteral("ex_1"), LiteralesService.GetLiteral("ex_salida"));
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (UnauthorizedAccessException un)
+            {
+                DisplayAlert(LiteralesService.GetLiteral("ex_error"), un.InnerException.Message, LiteralesService.GetLiteral("ex_salida"));
+                return false;
+            }
+            catch (Exception e)
+            {
+                DisplayAlert(LiteralesService.GetLiteral("ex_error"), e.InnerException.Message, LiteralesService.GetLiteral("ex_salida"));
+                return false;
+            }
+
+            return base.OnBackButtonPressed();
+        }
+
+        /// <summary>
+        /// Botón que cambia de sexo a hombre
+        /// llama a <see cref="FocusOnOff"/> para hacer focus al botón.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void BtnHombre_Clicked(object sender, EventArgs e)
         {
             // edit y cambio
@@ -89,6 +190,29 @@ namespace AppCETN.Views
             FocusOnOff(btn, _btnMujer, Color.FromRgb(153, 187, 255));
         }
 
+        /// <summary>
+        /// Botón que cambia de sexo a mujer
+        /// llama a <see cref="FocusOnOff"/> para hacer focus al botón.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void BtnMujer_Clicked(object sender, EventArgs e)
+        {
+            // edit y cambio
+            if (!_esNuevo && !_esMujer)
+                ItemHumano = new Mujer(ItemHumano);
+
+            _esMujer = true;
+            Button btn = (Button)sender;
+            FocusOnOff(btn, _btnHombre, Color.FromRgb(217, 179, 255));
+        }
+
+        /// <summary>
+        /// Botón que permite elegir una imagen del movil
+        /// se está utilizando la libreria <see cref="CrossMedia"/>
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void BtnCamara_Clicked(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
@@ -108,7 +232,7 @@ namespace AppCETN.Views
                 /// if you want to select from the gallery use this
                 if (!CrossMedia.Current.IsPickPhotoSupported)
                 {
-                    await DisplayAlert("Not supported", "Your device does not currently support this functionality", "Ok");
+                    await DisplayAlert(LiteralesService.GetLiteral("lbl_not_sup"), LiteralesService.GetLiteral("lbl_device"), LiteralesService.GetLiteral("lbl_ok"));
                     return;
                 }
 
@@ -123,15 +247,25 @@ namespace AppCETN.Views
 
                 if (selectedImageFile == null)
                 {
-                    await DisplayAlert("Error", "Could not get the image, please try again.", "Ok");
+                    await DisplayAlert(LiteralesService.GetLiteral("ex_error"), LiteralesService.GetLiteral("lbl_no_image"), LiteralesService.GetLiteral("lbl_ok"));
                     return;
                 }
                 ItemHumano.Photo = selectedImageFile.Path;
                 CambiarImagen(selectedImageFile.Path);
             }
+            else
+            {
+                await DisplayAlert(LiteralesService.GetLiteral("ex_error"), LiteralesService.GetLiteral("ex_2"), LiteralesService.GetLiteral("ex_salida"));
+            }
         }
 
-        void CambiarImagen(string path)
+
+        /// <summary>
+        /// Oculta el botón en el caso de encontrar una imagen y establece la imagen seleccionada
+        /// usado por la función <see cref="BtnCamara_Clicked"/>
+        /// </summary>
+        /// <param name="path"></param>
+        private void CambiarImagen(string path)
         {
             try
             {
@@ -145,28 +279,17 @@ namespace AppCETN.Views
             }
             catch (Exception)
             {
-                DisplayAlert("Error", "No es posible cargar la foto.", "Ok");
+                DisplayAlert(LiteralesService.GetLiteral("ex_error"), LiteralesService.GetLiteral("lbl_no_image"), LiteralesService.GetLiteral("lbl_ok"));
             }
         }
 
-        void BtnMujer_Clicked(object sender, EventArgs e)
-        {
-            // edit y cambio
-            if(!_esNuevo && !_esMujer)
-                ItemHumano = new Mujer(ItemHumano);
-
-            _esMujer = true;
-            Button btn = (Button)sender;
-            FocusOnOff(btn,_btnHombre, Color.FromRgb(217, 179, 255));
-        }
-
         /// <summary>
-        /// Activa y desactiva boton.
+        /// Activa y desactiva botón.
         /// </summary>
         /// <param name="btn_on">boton que se activa</param>
         /// <param name="btn_off">boton que se desactiva</param>
         /// <param name="color">color para activar</param>
-        private void FocusOnOff(Button btn_on,Button btn_off,Color color)
+        private void FocusOnOff(Button btn_on, Button btn_off, Color color)
         {
             btn_off.BackgroundColor = Color.FromHex("#ddd");
             btn_off.Opacity = 0.5;
@@ -176,100 +299,11 @@ namespace AppCETN.Views
             btn_on.BorderColor = color;
         }
 
-        async void Save_Clicked(object sender, EventArgs e) => await Navigation.PopModalAsync();
-
-
-        private void EnableDisableFocus(object sender, EventArgs e) => (sender as Entry).IsEnabled = true;
-
-        protected override bool OnBackButtonPressed()
-        {
-            try
-            {
-                if (IsChangedPickers() || isBasicFill() || ItemHumano.Sexo != _valorInicialSexo || !String.IsNullOrEmpty(ItemHumano.Photo))
-                {
-                    if (_esNuevo)
-                    {
-                        ItemHumano = _esMujer ? Singleton.Instance.NewMujerAsync(ItemHumano) :
-                            Singleton.Instance.NewHombreAsync(ItemHumano);
-                    }
-                    else
-                    {
-                        Singleton.Instance.Update(ItemHumano);
-                        if (Singleton.Instance.IsBusy)
-                        {
-                            DisplayAlert(LiteralesService.GetLiteral("ex_error"), LiteralesService.GetLiteral("ex_1"), LiteralesService.GetLiteral("ex_salida"));
-                            return false;
-                        }
-                    }
-                }
-            } catch (UnauthorizedAccessException un)
-            {
-                DisplayAlert(LiteralesService.GetLiteral("ex_error"), un.InnerException.Message, LiteralesService.GetLiteral("ex_salida"));
-                return false;
-            }
-            catch (Exception e) {
-                DisplayAlert(LiteralesService.GetLiteral("ex_error"), e.InnerException.Message, LiteralesService.GetLiteral("ex_salida"));
-                return false;
-            }
-
-            return base.OnBackButtonPressed();
-        }
-
         /// <summary>
-        ///  Función que nos asegura que se ha resaltado algún picker.
-        ///  no ponemos ningún condionante de selección en los pickers
-        ///  si quisieramos agregar condicionante desseleccionar.
+        /// Botón que elimina a un elemento.
         /// </summary>
-        /// <returns></returns>
-        private bool IsChangedPickers()
-        {
-            bool resultado = false;
-            if (PickerOjos.isChanged)
-            {
-                ItemHumano.Ojo = PickerOjos.SelectedItem;
-                resultado = true;
-                PickerOjos.isChanged = false;
-                //Singleton.Instance.OnPropertyChanged("Ojo");
-            }
-            if (PickerCabello.isChanged)
-            {
-                ItemHumano.Pelo = PickerCabello.SelectedItem;
-                resultado = true;
-                PickerCabello.isChanged = false;
-            }
-            if (PickerPecho.isChanged)
-            {
-                ItemHumano.Pecho = PickerPecho.SelectedItem;
-                resultado = true;
-                PickerPecho.isChanged = false;
-            }
-            if (PickerNalgas.isChanged)
-            {
-                ItemHumano.Culo = PickerNalgas.SelectedItem;
-                resultado = true;
-                PickerNalgas.isChanged = false;
-            }
-            if (PickerFisionomia.isChanged)
-            {
-                ItemHumano.Fisionomia = PickerFisionomia.SelectedItem;
-                resultado = true;
-                PickerFisionomia.isChanged = false;
-            }
-            if (PickerPrendaSuperior.isChanged)
-            {
-                ItemHumano.Prenda1 = PickerPrendaSuperior.SelectedItem;
-                resultado = true;
-                PickerPrendaSuperior.isChanged = false;
-            }
-            if (PickerPrendaInferior.isChanged)
-            {
-                ItemHumano.Prenda2 = PickerPrendaInferior.SelectedItem;
-                resultado = true;
-                PickerPrendaInferior.isChanged = false;
-            }
-            return resultado;
-        }
-
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void DeleteItem_Clicked(object sender, EventArgs e)
         {
             var answer = await DisplayAlert(LiteralesService.GetLiteral("del_Eliminar"),
@@ -282,6 +316,7 @@ namespace AppCETN.Views
                 await Navigation.PopModalAsync();
             }
         }
+        #endregion
 
         #region Labels de la vista
         public string LblDescripcion

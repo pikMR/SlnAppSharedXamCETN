@@ -67,6 +67,10 @@
     <item>Borraras esta persona ¿seguro?</item>
     <item>Sí</item>
     <item>No</item>
+    <item>Vale</item>
+    <item>No Soportado</item>
+    <item>El dispositivo no soporta esta funcionalidad.</item>
+    <item>No se puede obtener la imagen, revise los permisos de acceso de la aplicación.</item>
   </string-array>
   <string-array name="lista_lbl_literales">
     <item>titulo</item>
@@ -135,5 +139,9 @@
     <item>del_seguro</item>
     <item>del_Si</item>
     <item>del_No</item>
+    <item>lbl_ok</item>
+    <item>lbl_not_sup</item>
+    <item>lbl_device</item>
+    <item>lbl_no_image</item>
   </string-array>
 </resources>

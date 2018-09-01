@@ -67,6 +67,10 @@
     <item>你会抹掉这个人吗？</item>
     <item>是的</item>
     <item>不</item>
+    <item>好。</item>
+    <item>不支持。</item>
+    <item>您的设备目前不支持此功能。</item>
+    <item>无法获取图片，请再试一次</item>
   </string-array>
   <string-array name="lista_lbl_literales">
     <item>titulo</item>
@@ -135,5 +139,9 @@
     <item>del_seguro</item>
     <item>del_Si</item>
     <item>del_No</item>
+    <item>lbl_ok</item>
+    <item>lbl_not_sup</item>
+    <item>lbl_device</item>
+    <item>lbl_no_image</item>
   </string-array>
 </resources>

@@ -10,7 +10,7 @@ namespace AppCETN.Models
         public string Apellido { get; set; }
         [Newtonsoft.Json.JsonProperty("Voz")]
         public string Voz { get; set; }
-        [Newtonsoft.Json.JsonProperty("TezPiel")]
+        [Newtonsoft.Json.JsonProperty("Tez")]
         public string Tez { get; set; }
         [Newtonsoft.Json.JsonProperty("Estatura")]
         public string Estatura { get; set; }
@@ -18,33 +18,29 @@ namespace AppCETN.Models
         public string Fisionomia { get; set; }
         [Newtonsoft.Json.JsonProperty("Pecho")]
         public string Pecho { get; set; }
-        [Newtonsoft.Json.JsonProperty("Nalgas")]
+        [Newtonsoft.Json.JsonProperty("Culo")]
         public string Culo { get; set; }
         [Newtonsoft.Json.JsonProperty("Tatuaje")]
         public string Tatuaje { get; set; }
         [Newtonsoft.Json.JsonProperty("Cabello")]
-        public Cabello Pelo { get; set; }
+        public Cabello Cabello { get; set; }
         [Newtonsoft.Json.JsonProperty("Ojos")]
-        public Ojos Ojo { get; set; }
+        public Ojos Ojos { get; set; }
         [Newtonsoft.Json.JsonProperty("Orejas")]
-        public Orejas Oreja { get; set; }
+        public Orejas Orejas { get; set; }
         [Newtonsoft.Json.JsonProperty("Accesorios")]
-        public Accesorios Decoracion { get; set; }
+        public Accesorios Accesorios { get; set; }
         [Newtonsoft.Json.JsonProperty("PrendaSuperior")]
-        public PrendaSuperior Prenda1 { get; set; }
+        public PrendaSuperior PrendaSuperior { get; set; }
         [Newtonsoft.Json.JsonProperty("PrendaInferior")]
-        public PrendaInferior Prenda2 { get; set; }
+        public PrendaInferior PrendaInferior { get; set; }
         [Newtonsoft.Json.JsonProperty("Calzado")]
-        public Calzado Pie { get; set; }
+        public Calzado Calzado { get; set; }
         public virtual char Sexo { get; set; }
 
         public override string ToString()
         {
-            /*if (!string.IsNullOrEmpty(AtribSeleccionado))
-            {
-                return base.ToString() + AtribSeleccionado;
-            }*/
-                return base.ToString();
+            return base.ToString();
         }
 
         public override bool Equals(object obj)
@@ -61,18 +57,22 @@ namespace AppCETN.Models
         {
             Fecha = itemHumano.Fecha;
             IdEntidad = itemHumano.IdEntidad;
-            Ojo = itemHumano.Ojo;
-            Pelo = itemHumano.Pelo;
+            Ojos = itemHumano.Ojos;
+            Cabello = itemHumano.Cabello;
             Pecho = itemHumano.Pecho;
             Culo = itemHumano.Culo;
             Fisionomia = itemHumano.Fisionomia;
-            Prenda1 = itemHumano.Prenda1;
-            Prenda2 = itemHumano.Prenda2;
+            PrendaSuperior = itemHumano.PrendaSuperior;
+            PrendaInferior = itemHumano.PrendaInferior;
             Nombre = itemHumano.Nombre;
             Descripcion = itemHumano.Descripcion;
+            Photo = itemHumano.Photo;
+
+            if (string.IsNullOrEmpty(Fecha))
+                Fecha = System.DateTime.Now.ToLocalTime().ToString();
         }
 
-        public Humano() { }
+        public Humano():base() { }
 
         public static implicit operator Humano(Task<Humano> v)
         {

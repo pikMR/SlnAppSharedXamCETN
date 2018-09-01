@@ -67,6 +67,10 @@
     <item>Vous allez effacer cette personne, bien sûr?</item>
     <item>Oui</item>
     <item>Non</item>
+    <item>D\'accord.</item>
+    <item>Non supporté</item>
+    <item>Votre appareil ne prend pas actuellement en charge cette fonctionnalité.</item>
+    <item>Impossible d\'obtenir l\'image, veuillez réessayer.</item>
   </string-array>
   <string-array name="lista_lbl_literales">
     <item>titulo</item>
@@ -135,5 +139,9 @@
     <item>del_seguro</item>
     <item>del_Si</item>
     <item>del_No</item>
+    <item>lbl_ok</item>
+    <item>lbl_not_sup</item>
+    <item>lbl_device</item>
+    <item>lbl_no_image</item>
   </string-array>
 </resources>

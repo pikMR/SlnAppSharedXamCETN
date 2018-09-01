@@ -18,6 +18,7 @@
         public string Labios { get; set; }
         [Newtonsoft.Json.JsonProperty("Escote")]
         public bool Escote { get; set; }
+        [Newtonsoft.Json.JsonProperty("Sexo")]
         public override char Sexo { get { return 'M'; } }
     }
 }
