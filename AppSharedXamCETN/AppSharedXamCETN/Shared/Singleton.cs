@@ -16,9 +16,11 @@ namespace AppCETN.Shared
     /// </summary>
     public class Singleton : INotifyPropertyChanged
     {
+        public bool IsBusy { get; private set; }
+        public static bool BasesLegales { get; internal set; }
+        public event PropertyChangedEventHandler PropertyChanged;
         public static IDataStore<Humano> DataStore => DependencyService.Get<IDataStore<Humano>>() ?? new MockDataStore();
         private static Singleton instance = null;
-        
         private ObservableCollection<Humano> _lista = new ObservableCollection<Humano>();
 
         public ObservableCollection<Humano> Lista
@@ -33,6 +35,7 @@ namespace AppCETN.Shared
             Task.Run(async () => await ExecuteLoadHumansCommand());
         }
 
+
         public static Singleton Instance
         {
             get
@@ -45,10 +48,6 @@ namespace AppCETN.Shared
                 return instance;
             }
         }
-
-        public bool IsBusy { get; private set; }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
