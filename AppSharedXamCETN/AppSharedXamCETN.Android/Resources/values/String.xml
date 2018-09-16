@@ -71,6 +71,56 @@
     <item>Not supported</item>
     <item>Your device does not currently support this functionality.</item>
     <item>Could not get the image, please try again.</item>
+    <item>Legal Bases</item>
+    <item>I agree</item>
+    <item>I do not accept</item>
+    <item>You have the option to share your data if you accept the legal terms, otherwise your data will not be stored in a statistical database.</item>
+    <item>- Read the Legal Bases -</item>
+    <item>
+      - Condiciones generales de uso
+
+      Se obliga al uso exclusivo de esta APP para fines lícitos y no prohibidos, que no infrinjan la legalidad vigente y/o puedan resultar lesivos de los derechos del desarrollador o de cualquier tercero. Por ello, usted se abstendrá de utilizar los contenidos de esta APP para fines prohibidos o que, de cualquier forma puedan dañar o deteriorar o impedir el normal funcionamiento o uso de esta APP, de los equipos informáticos o de los documentos, archivos o de cualquier contenido almacenado en la APP.
+      El uso de esta APP será siempre con fines privados, por lo que no podrá, de ningún modo explotarse, reproducirse, distribuirse, modificarse, comunicarse públicamente, cederse, transformarse o usarse con fines comerciales.
+
+      El usuario se compromete a hacer un uso diligente de la App, así como de la información relativa a los productos y/o servicios contenidos en la misma, con total sujeción tanto a la normativa aplicable como a las Condiciones Generales de Acceso y Uso y, en su caso, a cualesquiera otras condiciones que el desarrollador establezca en la App.
+
+      Igualmente, el usuario se compromete a no realizar acto alguno con objeto de dañar, inutilizar y/o sobrecargar la App, o que impidiera, de cualquier forma, la normal utilización y funcionamiento de la misma.
+
+      Se informa al usuario de que, en el caso de que incumpla las Condiciones Generales de Acceso y Uso, o, en su caso, cualesquiera otros términos o condiciones recogidos en la App, el desarrollador se reserva el derecho a limitar, suspender y/o terminar su acceso a la App, adoptando cualquier medida técnica que sea necesaria con ese fin.
+
+      El desarrollador realiza sus mejores esfuerzos para mantener la App en buen funcionamiento, evitando errores o, en su caso, reparándolos, y manteniendo los contenidos de la App debidamente actualizados. No obstante, el desarrollador no garantiza la disponibilidad y continuidad en el acceso a la App ni la inexistencia de errores en sus contenidos, así como tampoco que éstos sean oportunamente actualizados.
+
+      - Propiedad intelectual e industrial
+
+      La APP cumple los terminos y condiciones del software libre, es posible su uso con fines académicos y se podrá encontrar en https://github.com/pikMR/
+
+      - Exclusión de responsabilidad
+
+      Tanto el acceso a la App como el uso que pueda hacerse de cualquier información o mecanismo que contiene, se realizan bajo la responsabilidad exclusiva del usuario.
+
+      El desarrollador no será responsable, bajo ninguna circunstancia, en cualquiera de los siguientes supuestos:
+
+      a)Por cualquier daño, perjuicio, lucro cesante y/o pérdida que pudieran derivarse, directa o indirectamente, del acceso o uso de la información contenida en la App y, especialmente, de aquella información relativa a terceros distintos del desarrollador, incluyéndose, pero no limitándose, a los producidos en los sistemas informáticos o los provocados por la introducción de virus y/o ataques informáticos y tampoco será responsable de los daños que pudieran sufrir los usuarios por un uso inadecuado de la App ni de las caídas, interrupciones, ausencia o defecto en las comunicaciones y/o en Internet.
+
+      b)Por cualquier infracción en el uso y/o utilización de la App, o cualquiera de sus elementos, cometida por una entidad o persona distinta del desarrollador.
+
+      c)Por cualquier perjuicio resultante de la imposibilidad del usuario de implementar a tiempo las actualizaciones/versiones recibidas del desarrollador.
+
+      d)Por cualquier incumplimiento de los términos y condiciones de las Condiciones Generales de Acceso y Uso, así como de las Plataformas y cualquier otra que sea aplicable.
+
+      El usuario responderá de los daños y perjuicios de toda naturaleza que el desarrollador pueda sufrir como consecuencia del incumplimiento de cualquiera de las obligaciones a las que queda sometido en virtud de las presentes Condiciones Generales de Acceso y Uso, el resto de condiciones previstas en la App y/o la legislación aplicable en cada momento.
+
+      El usuario mantendrá indemne al desarrollador por cualquier acción, judicial o extrajudicial, que interpongan terceros como consecuencia del uso de la App por parte del mismo, y responderá de los daños y/o perjuicios de toda naturaleza que el desarrollador pueda sufrir como consecuencia del incumplimiento de cualquiera de las obligaciones a las que queda sometido en virtud de las Condiciones Generales de Acceso y Uso o de la legislación aplicable en relación con la utilización de la App.
+
+      -  Política de privacidad
+
+      Por motivos de seguridad, la información que los Usuarios proporcionen desde la App "Recordar Nombres" será cifrada y tratada de conformidad con la normativa aplicable en la materia.
+
+      Los datos aportados en la app serán almacenados en una base de datos con caracter puramente estadistico, sin recoger datos personales de los usuarios,
+      solamente se recogeran los datos estrictamente escritos por el usuario en la aplicación, siempre y cuando el usuario esté conectado a internet se podrá hacer este envio.
+
+      Este envio de información siempre se podrá negar si el usuario quiere, pulsando el botón de cancelar las bases legales.
+    </item>
   </string-array>
   <string-array name="lista_lbl_literales">
     <item>titulo</item>
@@ -143,5 +193,11 @@
     <item>lbl_not_sup</item>
     <item>lbl_device</item>
     <item>lbl_no_image</item>
+    <item>lbl_bases</item>
+    <item>lbl_acepto</item>
+    <item>lbl_no_acepto</item>
+    <item>lbl_adv</item>
+    <item>lbl_leer</item>
+    <item>texto_bases_legales</item>
   </string-array>
 </resources>

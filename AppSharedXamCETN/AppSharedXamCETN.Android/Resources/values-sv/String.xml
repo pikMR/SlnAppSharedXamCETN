@@ -71,6 +71,12 @@
     <item>Stöds inte.</item>
     <item>Din enhet stöder för närvarande inte denna funktion.</item>
     <item>Det gick inte att få bilden, var god försök igen.</item>
+    <item>Juridiska baser</item>
+    <item>Jag accepterar</item>
+    <item>Jag accepterar inte</item>
+    <item>Du har möjlighet att dela dina uppgifter om du accepterar de juridiska villkoren, annars kommer dina data inte att lagras i en statistisk databas.</item>
+    <item>- Läs de juridiska baserna -</item>
+    <item>texto_bases_legales</item>
   </string-array>
   <string-array name="lista_lbl_literales">
     <item>titulo</item>
@@ -143,5 +149,11 @@
     <item>lbl_not_sup</item>
     <item>lbl_device</item>
     <item>lbl_no_image</item>
+    <item>lbl_bases</item>
+    <item>lbl_acepto</item>
+    <item>lbl_no_acepto</item>
+    <item>lbl_adv</item>
+    <item>lbl_leer</item>
+    <item>texto_bases_legales</item>
   </string-array>
 </resources>

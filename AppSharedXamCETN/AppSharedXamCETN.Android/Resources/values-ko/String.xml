@@ -71,6 +71,12 @@
     <item>지원되지 않습니다.</item>
     <item>귀하의 장치는 현재이 기능을 지원하지 않습니다.</item>
     <item>이미지를 가져올 수 없습니다. 다시 시도하십시오.</item>
+    <item>법률 기반</item>
+    <item>받아 들인다.</item>
+    <item>나는 받아들이지 않는다.</item>
+    <item>법적 조건을 수락하면 데이터를 공유 할 수있는 옵션이 있습니다. 그렇지 않으면 데이터가 통계 데이터베이스에 저장되지 않습니다.</item>
+    <item>- 법적 근거 읽기 -</item>
+    <item>texto_bases_legales</item>
   </string-array>
   <string-array name="lista_lbl_literales">
     <item>titulo</item>
@@ -143,5 +149,11 @@
     <item>lbl_not_sup</item>
     <item>lbl_device</item>
     <item>lbl_no_image</item>
+    <item>lbl_bases</item>
+    <item>lbl_acepto</item>
+    <item>lbl_no_acepto</item>
+    <item>lbl_adv</item>
+    <item>lbl_leer</item>
+    <item>texto_bases_legales</item>
   </string-array>
 </resources>

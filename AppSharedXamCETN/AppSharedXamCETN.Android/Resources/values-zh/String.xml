@@ -71,6 +71,12 @@
     <item>不支持。</item>
     <item>您的设备目前不支持此功能。</item>
     <item>无法获取图片，请再试一次</item>
+    <item>法律基础</item>
+    <item>我接受</item>
+    <item>我不接受</item>
+    <item>如果您接受法律条款，则可以选择共享数据，否则您的数据将不会存储在统计数据库中。</item>
+    <item>- 阅读法律基础 -</item>
+    <item>texto_bases_legales</item>
   </string-array>
   <string-array name="lista_lbl_literales">
     <item>titulo</item>
@@ -143,5 +149,11 @@
     <item>lbl_not_sup</item>
     <item>lbl_device</item>
     <item>lbl_no_image</item>
+    <item>lbl_bases</item>
+    <item>lbl_acepto</item>
+    <item>lbl_no_acepto</item>
+    <item>lbl_adv</item>
+    <item>lbl_leer</item>
+    <item>texto_bases_legales</item>
   </string-array>
 </resources>

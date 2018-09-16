@@ -71,6 +71,12 @@
     <item>Ikke støttet.</item>
     <item>Enheten støtter ikke denne funksjonen for øyeblikket.</item>
     <item>Kunne ikke få bildet, prøv igjen.</item>
+    <item>Juridiske grunner</item>
+    <item>Jeg aksepterer</item>
+    <item>Jeg aksepterer ikke</item>
+    <item>Du har muligheten til å dele dataene dine hvis du godtar de juridiske vilkårene, ellers blir dataene dine ikke lagret i en statistisk database.</item>
+    <item>- Les de juridiske basene -</item>
+    <item>texto_bases_legales</item>
   </string-array>
   <string-array name="lista_lbl_literales">
     <item>titulo</item>
@@ -143,5 +149,11 @@
     <item>lbl_not_sup</item>
     <item>lbl_device</item>
     <item>lbl_no_image</item>
+    <item>lbl_bases</item>
+    <item>lbl_acepto</item>
+    <item>lbl_no_acepto</item>
+    <item>lbl_adv</item>
+    <item>lbl_leer</item>
+    <item>texto_bases_legales</item>
   </string-array>
 </resources>

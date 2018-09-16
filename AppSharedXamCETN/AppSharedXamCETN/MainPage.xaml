@@ -4,7 +4,10 @@
              xmlns:local="clr-namespace:AppCETN.ViewModels"
              x:Class="AppCETN.MainPage"
              x:Name="Root"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="True">
+    <!--ContentPage.ToolbarItems> 
+        <ToolbarItem Text="Bases Legales"  Activated="VerBasesLegales" Icon="legales.png"></ToolbarItem>
+    </-->
     <ScrollView>
         <StackLayout>
             <Button x:Name="PressAdd" Clicked="AddItem_Clicked" Image="add.png" VerticalOptions="Center" ContentLayout="Top,0" />

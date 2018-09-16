@@ -71,6 +71,12 @@
     <item>Não suportado.</item>
     <item>Atualmente, o seu dispositivo não suporta esta funcionalidade.</item>
     <item>Não foi possível obter a imagem, por favor, tente novamente.</item>
+    <item>Bases Legais</item>
+    <item>Eu aceito</item>
+    <item>Não aceito</item>
+    <item>Você tem a opção de compartilhar seus dados se aceitar os termos legais, caso contrário, seus dados não serão armazenados em um banco de dados estatísticos.</item>
+    <item>- Leia as bases legais -</item>
+    <item>texto_bases_legales</item>
   </string-array>
   <string-array name="lista_lbl_literales">
     <item>titulo</item>
@@ -143,5 +149,11 @@
     <item>lbl_not_sup</item>
     <item>lbl_device</item>
     <item>lbl_no_image</item>
+    <item>lbl_bases</item>
+    <item>lbl_acepto</item>
+    <item>lbl_no_acepto</item>
+    <item>lbl_adv</item>
+    <item>lbl_leer</item>
+    <item>texto_bases_legales</item>
   </string-array>
 </resources>
